@@ -16,21 +16,46 @@
         .logo-monogram { font-size: 24px; font-weight: 700; letter-spacing: 2px; margin-bottom: 2px; }
         .logo-text { font-size: 14px; font-weight: 300; text-transform: uppercase; letter-spacing: 5px; }
         
-        /* ГЛАВНАЯ СТРАНИЦА (HERO BANNER) */
+        /* ГЛАВНАЯ СТРАНИЦА (ГАРАНТИРОВАННОЕ ОТОБРАЖЕНИЕ ФОТО) */
         .main-hero { 
             height: 100vh; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             position: relative; 
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('Page1-1.PNG') no-repeat center center; 
-            background-size: cover; 
-            background-attachment: fixed;
+            background-color: #111111;
             text-align: center;
             color: #ffffff;
             padding: 0 20px;
+            overflow: hidden;
         }
-        .hero-content { max-width: 800px; animation: fadeIn 1.2s ease-out; }
+        /* Сама картинка как жесткий фон */
+        .hero-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        /* Пленка затемнения поверх картинки */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55));
+            z-index: 2;
+        }
+        /* Контент поверх всего */
+        .hero-content { 
+            position: relative;
+            z-index: 3;
+            max-width: 800px; 
+            animation: fadeIn 1.2s ease-out; 
+        }
         .hero-content h1 { font-size: 52px; font-weight: 300; text-transform: uppercase; letter-spacing: 6px; margin-bottom: 20px; line-height: 1.2; }
         .hero-content p { font-size: 18px; font-weight: 300; letter-spacing: 1.5px; color: #f0f0f0; max-width: 600px; margin: 0 auto 40px auto; }
         .hero-btn { 
@@ -58,413 +83,4 @@
         /* УПРАВЛЕНИЕ КАТАЛОГОМ */
         .catalog-controls { max-width: 1400px; margin: 40px auto; padding: 0 20px; display: flex; flex-direction: column; align-items: center; gap: 25px; }
         .search-container { position: relative; width: 100%; max-width: 450px; }
-        .search-input { width: 100%; padding: 14px 24px; font-size: 14px; border: 1px solid #e0e0e0; outline: none; transition: border-color 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-        .search-input:focus { border-color: #111111; }
-        .filter-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-        .filter-tab { background: none; border: 1px solid #e0e0e0; padding: 12px 28px; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: all 0.3s ease; }
-        .filter-tab:hover, .filter-tab.active { background-color: #111111; border-color: #111111; color: #ffffff; }
-        
-        /* СЕТКА ТОВАРОВ */
-        .catalog-container { max-width: 1400px; margin: 0 auto; padding: 0 20px 80px 20px; }
-        .stone-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 35px; }
-        .stone-card { display: flex; flex-direction: column; cursor: pointer; transition: transform 0.3s ease; }
-        .stone-card:hover { transform: translateY(-6px); }
-        .card-media { width: 100%; padding-top: 133.33%; position: relative; background-color: #fcfcfc; border: 1px solid #f0f0f0; overflow: hidden; }
-        .card-media img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-        .card-meta { margin-top: 18px; text-align: center; }
-        .card-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
-        .card-sku { font-size: 11px; color: #888888; letter-spacing: 0.5px; }
-        
-        /* ПОДВАЛ САЙТА */
-        footer { background-color: #f9f9f9; border-top: 1px solid #f0f0f0; padding: 60px 20px; }
-        .footer-container { max-width: 1200px; margin: 0 auto; text-align: center; }
-        .footer-title { font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 400; }
-        .address-block { font-size: 14px; color: #333333; max-width: 600px; margin: 0 auto 25px auto; font-weight: 300; }
-        .notice-badge { display: inline-block; color: #c92a2a; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid #f1a9a9; background-color: #fff5f5; padding: 6px 16px; margin-bottom: 30px; }
-        .footer-nav-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
-        .footer-btn { text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; padding: 12px 25px; border: 1px solid #111111; transition: all 0.3s; }
-        .btn-maps { background-color: #111111; color: #ffffff; }
-        .btn-maps:hover { background-color: #333333; }
-        .btn-visit { background-color: transparent; color: #111111; }
-        .btn-visit:hover { background-color: #111111; color: #ffffff; }
-        .copyright { font-size: 11px; color: #999999; letter-spacing: 1px; text-transform: uppercase; }
-        
-        /* МОДАЛЬНОЕ ОКНО */
-        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.99); z-index: 10000; display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
-        .lightbox.active { display: flex; opacity: 1; }
-        .lightbox-window { position: relative; max-width: 85vh; width: 90%; display: flex; flex-direction: column; align-items: center; }
-        .lightbox-frame { width: 100%; max-height: 72vh; box-shadow: 0 25px 50px rgba(0,0,0,0.06); border: 1px solid #eeeeee; background: #ffffff; }
-        .lightbox-frame img { width: 100%; max-height: 72vh; object-fit: contain; display: block; }
-        .lightbox-whatsapp-btn { margin-top: 25px; background-color: #25D366; color: #ffffff; text-decoration: none; padding: 16px 45px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; border-radius: 4px; transition: background-color 0.3s, transform 0.2s; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25); text-align: center; }
-        .lightbox-whatsapp-btn:hover { background-color: #1ebd54; transform: translateY(-2px); }
-        .lightbox-close { position: absolute; top: -55px; right: 0; background: none; border: none; font-size: 38px; font-weight: 200; cursor: pointer; color: #111111; line-height: 1; }
-        .lightbox-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 45px; font-weight: 100; cursor: pointer; color: #111111; padding: 20px; user-select: none; transition: opacity 0.2s; }
-        .lightbox-arrow:hover { opacity: 0.5; }
-        .arrow-prev { left: -85px; }
-        .arrow-next { right: -85px; }
-        
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 1100px) { .stone-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; } }
-        @media (max-width: 768px) { 
-            .stone-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } 
-            .hero-content h1 { font-size: 36px; letter-spacing: 4px; }
-            .hero-content p { font-size: 15px; }
-            header { padding: 20px; } 
-        }
-        @media (max-width: 480px) { .stone-grid { grid-template-columns: repeat(1, 1fr); gap: 25px; } .filter-tabs { width: 100%; } .filter-tab { flex: 1 1 calc(50% - 12px); text-align: center; padding: 10px 5px; } .lightbox-arrow { display: none; } .lightbox-close { top: -45px; right: 5px; } .lightbox-whatsapp-btn { width: 100%; box-sizing: border-box; } }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo-link">
-                <span class="logo-monogram">M</span>
-                <span class="logo-text">MICARON</span>
-            </a>
-        </div>
-    </header>
-
-    <section class="main-hero">
-        <div class="hero-content">
-            <h1>Micaron Quartz</h1>
-            <p>Premium engineered stone surfaces for exclusive architectural designs and luxury interiors in Dubai.</p>
-            <a href="#collection" class="hero-btn">Explore Collection</a>
-        </div>
-    </section>
-
-    <main class="catalog-section" id="collection">
-        <section class="hero-section">
-            <h2>The Quartz Collection</h2>
-            <p>Meticulously crafted quartz slabs optimized for high-end residential and commercial developments.</p>
-        </section>
-
-        <section class="catalog-controls">
-            <div class="search-container">
-                <input type="text" id="stoneSearch" class="search-input" placeholder="Search by SKU or Name (e.g. #9001)...">
-            </div>
-            <div class="filter-tabs">
-                <button class="filter-tab active" data-filter="all">All Surfaces</button>
-                <button class="filter-tab" data-filter="calacatta">Calacatta & Statuario</button>
-                <button class="filter-tab" data-filter="light">Light & Beige</button>
-                <button class="filter-tab" data-filter="dark">Dark & Grey</button>
-            </div>
-        </section>
-
-        <section class="catalog-container">
-            <div class="stone-grid" id="stoneGrid">
-                
-                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA BORGHINI" data-sku="#9002" data-fullimg="Page2-3.png">
-                    <div class="card-media"><img src="Page2-3.png" alt="MICARON CALACATTA BORGHINI" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON CALACATTA BORGHINI</h3><p class="card-sku">#9002</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON OLYMPUS WHITE" data-sku="#9003" data-fullimg="Page2-4.png">
-                    <div class="card-media"><img src="Page2-4.png" alt="MICARON OLYMPUS WHITE" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON OLYMPUS WHITE</h3><p class="card-sku">#9003</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON STATUARIO SUPREME" data-sku="#9004" data-fullimg="Page2-5.png">
-                    <div class="card-media"><img src="Page2-5.png" alt="MICARON STATUARIO SUPREME" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON STATUARIO SUPREME</h3><p class="card-sku">#9004</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA GOLD" data-sku="#9005" data-fullimg="Page2-6.png">
-                    <div class="card-media"><img src="Page2-6.png" alt="MICARON CALACATTA GOLD" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON CALACATTA GOLD</h3><p class="card-sku">#9005</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA EXTRA" data-sku="#9008" data-fullimg="Page3-8.png">
-                    <div class="card-media"><img src="Page3-8.png" alt="MICARON CALACATTA EXTRA" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON CALACATTA EXTRA</h3><p class="card-sku">#9008</p></div>
-                </div>
-
-                <div class="stone-card" data-category="light" data-name="MICARON PURE WHITE" data-sku="#9011" data-fullimg="Page4-11.png">
-                    <div class="card-media"><img src="Page4-11.png" alt="MICARON PURE WHITE" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON PURE WHITE</h3><p class="card-sku">#9011</p></div>
-                </div>
-
-                <div class="stone-card" data-category="light" data-name="MICARON STELLAR WHITE" data-sku="#9013" data-fullimg="Page4-13.png">
-                    <div class="card-media"><img src="Page4-13.png" alt="MICARON STELLAR WHITE" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON STELLAR WHITE</h3><p class="card-sku">#9013</p></div>
-                </div>
-
-                <div class="stone-card" data-category="dark" data-name="MICARON STELLAR GREY" data-sku="#9018" data-fullimg="Page5-18.png">
-                    <div class="card-media"><img src="Page5-18.png" alt="MICARON STELLAR GREY" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON STELLAR GREY</h3><p class="card-sku">#9018</p></div>
-                </div>
-
-                <div class="stone-card" data-category="light" data-name="MICARON PLATINUM WHITE" data-sku="#9020" data-fullimg="Page6-20.png">
-                    <div class="card-media"><img src="Page6-20.png" alt="MICARON PLATINUM WHITE" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON PLATINUM WHITE</h3><p class="card-sku">#9020</p></div>
-                </div>
-
-                <div class="stone-card" data-category="light" data-name="MICARON VANILLA CREAM" data-sku="#9025" data-fullimg="Page7-25.png">
-                    <div class="card-media"><img src="Page7-25.png" alt="MICARON VANILLA CREAM" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON VANILLA CREAM</h3><p class="card-sku">#9025</p></div>
-                </div>
-
-                <div class="stone-card" data-category="light" data-name="MICARON SAND BEIGE" data-sku="#9029" data-fullimg="Page8-29.png">
-                    <div class="card-media"><img src="Page8-29.png" alt="MICARON SAND BEIGE" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON SAND BEIGE</h3><p class="card-sku">#9029</p></div>
-                </div>
-
-                <div class="stone-card" data-category="light" data-name="MICARON SOFT PEARL" data-sku="#9041" data-fullimg="Page11-41.png">
-                    <div class="card-media"><img src="Page11-41.png" alt="MICARON SOFT PEARL" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON SOFT PEARL</h3><p class="card-sku">#9041</p></div>
-                </div>
-
-                <div class="stone-card" data-category="light" data-name="MICARON DESERT GOLD" data-sku="#9045" data-fullimg="Page12-45.png">
-                    <div class="card-media"><img src="Page12-45.png" alt="MICARON DESERT GOLD" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON DESERT GOLD</h3><p class="card-sku">#9045</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON MILANO CALACATTA" data-sku="#9047" data-fullimg="Page13-47.png">
-                    <div class="card-media"><img src="Page13-47.png" alt="MICARON MILANO CALACATTA" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON MILANO CALACATTA</h3><p class="card-sku">#9047</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON STATUARIO VENATO" data-sku="#9048" data-fullimg="Page13-48.png">
-                    <div class="card-media"><img src="Page13-48.png" alt="MICARON STATUARIO VENATO" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON STATUARIO VENATO</h3><p class="card-sku">#9048</p></div>
-                </div>
-
-                <div class="stone-card" data-category="dark" data-name="MICARON URBAN GREY" data-sku="#9056" data-fullimg="Page15-56.png">
-                    <div class="card-media"><img src="Page15-56.png" alt="MICARON URBAN GREY" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON URBAN GREY</h3><p class="card-sku">#9056</p></div>
-                </div>
-
-                <div class="stone-card" data-category="dark" data-name="MICARON PIETRA DARK" data-sku="#9064" data-fullimg="Page17-64.png">
-                    <div class="card-media"><img src="Page17-64.png" alt="MICARON PIETRA DARK" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON PIETRA DARK</h3><p class="card-sku">#9064</p></div>
-                </div>
-
-                <div class="stone-card" data-category="dark" data-name="MICARON ANTHRACITE GLOW" data-sku="#9067" data-fullimg="Page18-67.png">
-                    <div class="card-media"><img src="Page18-67.png" alt="MICARON ANTHRACITE GLOW" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON ANTHRACITE GLOW</h3><p class="card-sku">#9067</p></div>
-                </div>
-
-                <div class="stone-card" data-category="dark" data-name="MICARON ABSOLUTE BLACK" data-sku="#9073" data-fullimg="Page19-73.png">
-                    <div class="card-media"><img src="Page19-73.png" alt="MICARON ABSOLUTE BLACK" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON ABSOLUTE BLACK</h3><p class="card-sku">#9073</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON ROYAL OPAL" data-sku="#9075" data-fullimg="Page20-75.png">
-                    <div class="card-media"><img src="Page20-75.png" alt="MICARON ROYAL OPAL" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON ROYAL OPAL</h3><p class="card-sku">#9075</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA EXQUISITE" data-sku="#9085" data-fullimg="Page22-85.png">
-                    <div class="card-media"><img src="Page22-85.png" alt="MICARON CALACATTA EXQUISITE" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON CALACATTA EXQUISITE</h3><p class="card-sku">#9085</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON GRANDEUR COLD" data-sku="#9086" data-fullimg="Page22-86.png">
-                    <div class="card-media"><img src="Page22-86.png" alt="MICARON GRANDEUR COLD" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON GRANDEUR COLD</h3><p class="card-sku">#9086</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON IMPERIAL GOLD" data-sku="#9088" data-fullimg="Page23-88.png">
-                    <div class="card-media"><img src="Page23-88.png" alt="MICARON IMPERIAL GOLD" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON IMPERIAL GOLD</h3><p class="card-sku">#9088</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON ETNA ARABESCATO" data-sku="#9089" data-fullimg="Page23-89.png">
-                    <div class="card-media"><img src="Page23-89.png" alt="MICARON ETNA ARABESCATO" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON ETNA ARABESCATO</h3><p class="card-sku">#9089</p></div>
-                </div>
-
-                <div class="stone-card" data-category="light" data-name="MICARON ICE CREMA" data-sku="#9093" data-fullimg="Page24-93.png">
-                    <div class="card-media"><img src="Page24-93.png" alt="MICARON ICE CREMA" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON ICE CREMA</h3><p class="card-sku">#9093</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA VERONA" data-sku="#9101" data-fullimg="Page26-101.png">
-                    <div class="card-media"><img src="Page26-101.png" alt="MICARON CALACATTA VERONA" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON CALACATTA VERONA</h3><p class="card-sku">#9101</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON AMALFI LUXE" data-sku="#9102" data-fullimg="Page26-102.png">
-                    <div class="card-media"><img src="Page26-102.png" alt="MICARON AMALFI LUXE" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON AMALFI LUXE</h3><p class="card-sku">#9102</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA TUSCANY" data-sku="#9104" data-fullimg="Page27-104.png">
-                    <div class="card-media"><img src="Page27-104.png" alt="MICARON CALACATTA TUSCANY" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON CALACATTA TUSCANY</h3><p class="card-sku">#9104</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON STATUARIO PORTO" data-sku="#9106" data-fullimg="Page27-106.png">
-                    <div class="card-media"><img src="Page27-106.png" alt="MICARON STATUARIO PORTO" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON STATUARIO PORTO</h3><p class="card-sku">#9106</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON MAGNIFICENT WHITE" data-sku="#9107" data-fullimg="Page28-107.png">
-                    <div class="card-media"><img src="Page28-107.png" alt="MICARON MAGNIFICENT WHITE" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON MAGNIFICENT WHITE</h3><p class="card-sku">#9107</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA VENETO" data-sku="#9108" data-fullimg="Page28-108.png">
-                    <div class="card-media"><img src="Page28-108.png" alt="MICARON CALACATTA VENETO" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON CALACATTA VENETO</h3><p class="card-sku">#9108</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON VENICE INFINITY" data-sku="#9113" data-fullimg="Page29-113.png">
-                    <div class="card-media"><img src="Page29-113.png" alt="MICARON VENICE INFINITY" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON VENICE INFINITY</h3><p class="card-sku">#9113</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA OPERA" data-sku="#9115" data-fullimg="Page30-115.png">
-                    <div class="card-media"><img src="Page30-115.png" alt="MICARON CALACATTA OPERA" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON CALACATTA OPERA</h3><p class="card-sku">#9115</p></div>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <h2 class="footer-title">Our Stockyard & Gallery</h2>
-            <p class="address-block">
-                Warehouse E-12, DIP 2 (Dubai Investment Park 2),<br>
-                Jebel Ali Industrial Area, Dubai, United Arab Emirates
-            </p>
-            <div class="notice-badge">By Appointment Only</div>
-            
-            <div class="footer-nav-buttons">
-                <a href="http://googleusercontent.com/maps.google.com/3" target="_blank" class="footer-btn btn-maps">Open in Google Maps</a>
-                <a href="#" id="footerBookBtn" target="_blank" class="footer-btn btn-visit">Book a Visit via WhatsApp</a>
-            </div>
-            
-            <p class="copyright">© 2026 MICARON QUARTZ STONE. ALL RIGHTS RESERVED.</p>
-        </div>
-    </footer>
-
-    <div class="lightbox" id="stoneLightbox">
-        <button class="lightbox-arrow arrow-prev" id="prevStoneBtn">‹</button>
-        <div class="lightbox-window">
-            <button class="lightbox-close" id="closeLightboxBtn">×</button>
-            <div class="lightbox-frame">
-                <img id="lightboxMainImg" src="" alt="Micaron Quartz Asset">
-            </div>
-            <a href="#" id="lightboxWhatsAppLink" target="_blank" class="lightbox-whatsapp-btn">Check Availability & Order via WhatsApp</a>
-        </div>
-        <button class="lightbox-arrow arrow-next" id="nextStoneBtn">›</button>
-    </div>
-
-    <script>
-        const MY_PHONE_NUMBER = "971585865577"; 
-
-        const searchField = document.getElementById('stoneSearch');
-        const tabs = document.querySelectorAll('.filter-tab');
-        const grid = document.getElementById('stoneGrid');
-        
-        const modal = document.getElementById('stoneLightbox');
-        const modalImg = document.getElementById('lightboxMainImg');
-        const modalWaLink = document.getElementById('lightboxWhatsAppLink');
-        const modalClose = document.getElementById('closeLightboxBtn');
-        const modalPrev = document.getElementById('prevStoneBtn');
-        const modalNext = document.getElementById('nextStoneBtn');
-        const footerBookBtn = document.getElementById('footerBookBtn');
-
-        let cards = document.querySelectorAll('.stone-card');
-        let dynamicSelection = Array.from(cards);
-        let pointerIndex = 0;
-
-        const footerText = "Hello Micaron Team, I would like to schedule a structural visit to your DIP-2 stockyard to view the quartz collection.";
-        footerBookBtn.href = `https://wa.me/${MY_PHONE_NUMBER}?text=${encodeURIComponent(footerText)}`;
-
-        function executeRealtimeFiltering() {
-            const query = searchField.value.toLowerCase().trim();
-            const currentFilter = document.querySelector('.filter-tab.active').getAttribute('data-filter');
-
-            cards.forEach(card => {
-                const title = card.getAttribute('data-name').toLowerCase();
-                const sku = card.getAttribute('data-sku').toLowerCase();
-                const category = card.getAttribute('data-category');
-
-                const passQuery = title.includes(query) || sku.includes(query);
-                const passTab = currentFilter === 'all' || category === currentFilter;
-
-                if (passQuery && passTab) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            dynamicSelection = Array.from(cards).filter(card => card.style.display !== 'none');
-        }
-
-        searchField.addEventListener('input', executeRealtimeFiltering);
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                executeRealtimeFiltering();
-            });
-        });
-
-        function triggerModalDisplay(index) {
-            if (index < 0 || index >= dynamicSelection.length) return;
-            pointerIndex = index;
-            const card = dynamicSelection[pointerIndex];
-            const hdSource = card.getAttribute('data-fullimg');
-            const targetName = card.getAttribute('data-name');
-            const targetSku = card.getAttribute('data-sku');
-
-            modalImg.src = hdSource;
-
-            const customMessage = `Hello Micaron Team, I am interested in checking the availability of ${targetName} ${targetSku}. Could you please share the current stock status at your Dubai warehouse? Thank you!`;
-            modalWaLink.href = `https://wa.me/${MY_PHONE_NUMBER}?text=${encodeURIComponent(customMessage)}`;
-
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function shutdownModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function stepNextAsset() {
-            if (dynamicSelection.length <= 1) return;
-            pointerIndex = (pointerIndex + 1) % dynamicSelection.length;
-            triggerModalDisplay(pointerIndex);
-        }
-
-        function stepPrevAsset() {
-            if (dynamicSelection.length <= 1) return;
-            pointerIndex = (pointerIndex - 1 + dynamicSelection.length) % dynamicSelection.length;
-            triggerModalDisplay(pointerIndex);
-        }
-
-        grid.addEventListener('click', (e) => {
-            const card = e.target.closest('.stone-card');
-            if (!card) return;
-            
-            const internalIndex = dynamicSelection.indexOf(card);
-            if (internalIndex !== -1) {
-                triggerModalDisplay(internalIndex);
-            }
-        });
-
-        modalClose.addEventListener('click', shutdownModal);
-        modalNext.addEventListener('click', stepNextAsset);
-        modalPrev.addEventListener('click', stepPrevAsset);
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) shutdownModal();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (!modal.classList.contains('active')) return;
-            if (e.key === 'Escape') shutdownModal();
-            if (e.key === 'ArrowRight') stepNextAsset();
-            if (e.key === 'ArrowLeft') stepPrevAsset();
-        });
-    </script>
-</body>
-</html>
+        .search-input { width: 100%; padding: 14px 24px; font-size: 1
