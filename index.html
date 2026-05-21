@@ -5,415 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MICARON | Premium Quartz Stone Dubai</title>
     <style>
-        /* --- БАЗОВЫЕ НАСТРОЙКИ И ОБНУЛЕНИЕ --- */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #ffffff;
-            color: #111111;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- ШАПКА САЙТА (HEADER) --- */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid #f0f0f0;
-            padding: 15px 40px;
-        }
-
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .logo-link {
-            text-decoration: none;
-            color: #111111;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Центрируем букву М над текстом */
-        }
-
-        /* Обновленная премиальная логика логотипа: М сверху, текст снизу */
-        .logo-monogram {
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            line-height: 1;
-            margin-bottom: 2px;
-        }
-
-        .logo-text {
-            font-size: 13px;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            line-height: 1;
-        }
-
-        /* --- ГЛАВНЫЙ ЭКРАН / ИНТРО --- */
-        .hero-section {
-            padding: 60px 20px 20px 20px;
-            text-align: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .hero-section h1 {
-            font-size: 32px;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-        }
-
-        .hero-section p {
-            font-size: 16px;
-            color: #666666;
-            max-width: 600px;
-            margin: 0 auto;
-            font-weight: 300;
-        }
-
-        /* --- ПАНЕЛЬ КАТАЛОГА (ПОИСК И ФИЛЬТРЫ) --- */
-        .catalog-controls {
-            max-width: 1400px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .search-container {
-            position: relative;
-            width: 100%;
-            max-width: 450px;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 14px 24px;
-            font-size: 14px;
-            border: 1px solid #e0e0e0;
-            border-radius: 0;
-            outline: none;
-            transition: border-color 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .search-input:focus {
-            border-color: #111111;
-        }
-
-        .filter-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .filter-tab {
-            background: none;
-            border: 1px solid #e0e0e0;
-            padding: 12px 28px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-tab:hover, .filter-tab.active {
-            background-color: #111111;
-            border-color: #111111;
-            color: #ffffff;
-        }
-
-        /* --- СЕТКА КАМНЕЙ --- */
-        .catalog-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px 80px 20px;
-        }
-
-        .stone-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 35px;
-        }
-
-        .stone-card {
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .stone-card:hover {
-            transform: translateY(-6px);
-        }
-
-        .card-media {
-            width: 100%;
-            padding-top: 133.33%; /* Вертикальный формат под сочные плиты */
-            position: relative;
-            background-color: #fcfcfc;
-            border: 1px solid #f0f0f0;
-            overflow: hidden;
-        }
-
-        .card-media img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .card-meta {
-            margin-top: 18px;
-            text-align: center;
-        }
-
-        .card-title {
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 4px;
-        }
-
-        .card-sku {
-            font-size: 11px;
-            color: #888888;
-            letter-spacing: 0.5px;
-        }
-
-        /* Адаптивность сетки под любые экраны телефонов и планшетов */
-        @media (max-width: 1100px) {
-            .stone-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        }
-        @media (max-width: 768px) {
-            .stone-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            .hero-section h1 { font-size: 26px; }
-            header { padding: 15px 20px; }
-        }
-        @media (max-width: 480px) {
-            .stone-grid { grid-template-columns: repeat(1, 1fr); gap: 25px; }
-            .filter-tabs { width: 100%; }
-            .filter-tab { flex: 1 1 calc(50% - 12px); text-align: center; padding: 10px 5px; }
-        }
-
-        /* --- ПРЕМИУМ ПОДВАЛ (FOOTER) С АДРЕСОМ DIP-2 --- */
-        footer {
-            background-color: #f9f9f9;
-            border-top: 1px solid #f0f0f0;
-            padding: 60px 20px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .footer-title {
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-
-        .address-block {
-            font-size: 14px;
-            color: #333333;
-            max-width: 600px;
-            margin: 0 auto 25px auto;
-            font-weight: 300;
-        }
-
-        .notice-badge {
-            display: inline-block;
-            color: #c92a2a;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border: 1px solid #f1a9a9;
-            background-color: #fff5f5;
-            padding: 6px 16px;
-            margin-bottom: 30px;
-        }
-
-        .footer-nav-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .footer-btn {
-            text-decoration: none;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 12px 25px;
-            border: 1px solid #111111;
-            transition: all 0.3s;
-        }
-
-        .btn-maps {
-            background-color: #111111;
-            color: #ffffff;
-        }
-
-        .btn-maps:hover {
-            background-color: #333333;
-        }
-
-        .btn-visit {
-            background-color: transparent;
-            color: #111111;
-        }
-
-        .btn-visit:hover {
-            background-color: #111111;
-            color: #ffffff;
-        }
-
-        .copyright {
-            font-size: 11px;
-            color: #999999;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* --- ПРЕМИАЛЬНЫЙ LIGHTBOX (ВСПЛЫВАЮЩЕЕ ОКНО НА ВЕСЬ ЭКРАН) --- */
-        .lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.99);
-            z-index: 10000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .lightbox.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .lightbox-window {
-            position: relative;
-            max-width: 85vh;
-            width: 90%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .lightbox-frame {
-            width: 100%;
-            max-height: 72vh;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.06);
-            border: 1px solid #eeeeee;
-            background: #ffffff;
-        }
-
-        .lightbox-frame img {
-            width: 100%;
-            max-height: 72vh;
-            object-fit: contain;
-            display: block;
-        }
-
-        .lightbox-whatsapp-btn {
-            margin-top: 25px;
-            background-color: #25D366;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 16px 45px;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: background-color 0.3s, transform 0.2s;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
-            text-align: center;
-        }
-
-        .lightbox-whatsapp-btn:hover {
-            background-color: #1ebd54;
-            transform: translateY(-2px);
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: -55px;
-            right: 0;
-            background: none;
-            border: none;
-            font-size: 38px;
-            font-weight: 200;
-            cursor: pointer;
-            color: #111111;
-            line-height: 1;
-        }
-
-        .lightbox-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            font-size: 45px;
-            font-weight: 100;
-            cursor: pointer;
-            color: #111111;
-            padding: 20px;
-            user-select: none;
-            transition: opacity 0.2s;
-        }
-
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        header { position: sticky; top: 0; z-index: 999; background-color: rgba(255, 255, 255, 0.95); border-bottom: 1px solid #f0f0f0; padding: 15px 40px; }
+        .header-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: flex-start; }
+        .logo-link { text-decoration: none; color: #111111; display: flex; flex-direction: column; align-items: center; }
+        .logo-monogram { font-size: 22px; font-weight: 700; letter-spacing: 2px; margin-bottom: 2px; }
+        .logo-text { font-size: 13px; font-weight: 300; text-transform: uppercase; letter-spacing: 4px; }
+        .hero-section { padding: 60px 20px 20px 20px; text-align: center; max-width: 1400px; margin: 0 auto; }
+        .hero-section h1 { font-size: 32px; font-weight: 300; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; }
+        .hero-section p { font-size: 16px; color: #666666; max-width: 600px; margin: 0 auto; font-weight: 300; }
+        .catalog-controls { max-width: 1400px; margin: 40px auto; padding: 0 20px; display: flex; flex-direction: column; align-items: center; gap: 25px; }
+        .search-container { position: relative; width: 100%; max-width: 450px; }
+        .search-input { width: 100%; padding: 14px 24px; font-size: 14px; border: 1px solid #e0e0e0; outline: none; transition: border-color 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .search-input:focus { border-color: #111111; }
+        .filter-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+        .filter-tab { background: none; border: 1px solid #e0e0e0; padding: 12px 28px; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: all 0.3s ease; }
+        .filter-tab:hover, .filter-tab.active { background-color: #111111; border-color: #111111; color: #ffffff; }
+        .catalog-container { max-width: 1400px; margin: 0 auto; padding: 0 20px 80px 20px; }
+        .stone-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 35px; }
+        .stone-card { display: flex; flex-direction: column; cursor: pointer; transition: transform 0.3s ease; }
+        .stone-card:hover { transform: translateY(-6px); }
+        .card-media { width: 100%; padding-top: 133.33%; position: relative; background-color: #fcfcfc; border: 1px solid #f0f0f0; overflow: hidden; }
+        .card-media img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .card-meta { margin-top: 18px; text-align: center; }
+        .card-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
+        .card-sku { font-size: 11px; color: #888888; letter-spacing: 0.5px; }
+        @media (max-width: 1100px) { .stone-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; } }
+        @media (max-width: 768px) { .stone-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } .hero-section h1 { font-size: 26px; } header { padding: 15px 20px; } }
+        @media (max-width: 480px) { .stone-grid { grid-template-columns: repeat(1, 1fr); gap: 25px; } .filter-tabs { width: 100%; } .filter-tab { flex: 1 1 calc(50% - 12px); text-align: center; padding: 10px 5px; } }
+        footer { background-color: #f9f9f9; border-top: 1px solid #f0f0f0; padding: 60px 20px; }
+        .footer-container { max-width: 1200px; margin: 0 auto; text-align: center; }
+        .footer-title { font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 400; }
+        .address-block { font-size: 14px; color: #333333; max-width: 600px; margin: 0 auto 25px auto; font-weight: 300; }
+        .notice-badge { display: inline-block; color: #c92a2a; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid #f1a9a9; background-color: #fff5f5; padding: 6px 16px; margin-bottom: 30px; }
+        .footer-nav-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
+        .footer-btn { text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; padding: 12px 25px; border: 1px solid #111111; transition: all 0.3s; }
+        .btn-maps { background-color: #111111; color: #ffffff; }
+        .btn-maps:hover { background-color: #333333; }
+        .btn-visit { background-color: transparent; color: #111111; }
+        .btn-visit:hover { background-color: #111111; color: #ffffff; }
+        .copyright { font-size: 11px; color: #999999; letter-spacing: 1px; text-transform: uppercase; }
+        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.99); z-index: 10000; display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+        .lightbox.active { display: flex; opacity: 1; }
+        .lightbox-window { position: relative; max-width: 85vh; width: 90%; display: flex; flex-direction: column; align-items: center; }
+        .lightbox-frame { width: 100%; max-height: 72vh; box-shadow: 0 25px 50px rgba(0,0,0,0.06); border: 1px solid #eeeeee; background: #ffffff; }
+        .lightbox-frame img { width: 100%; max-height: 72vh; object-fit: contain; display: block; }
+        .lightbox-whatsapp-btn { margin-top: 25px; background-color: #25D366; color: #ffffff; text-decoration: none; padding: 16px 45px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; border-radius: 4px; transition: background-color 0.3s, transform 0.2s; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25); text-align: center; }
+        .lightbox-whatsapp-btn:hover { background-color: #1ebd54; transform: translateY(-2px); }
+        .lightbox-close { position: absolute; top: -55px; right: 0; background: none; border: none; font-size: 38px; font-weight: 200; cursor: pointer; color: #111111; line-height: 1; }
+        .lightbox-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 45px; font-weight: 100; cursor: pointer; color: #111111; padding: 20px; user-select: none; transition: opacity 0.2s; }
         .lightbox-arrow:hover { opacity: 0.5; }
         .arrow-prev { left: -85px; }
         .arrow-next { right: -85px; }
-
-        @media (max-width: 850px) {
-            .lightbox-arrow { display: none; } /* Свайпы/крестик для мобильных */
-            .lightbox-close { top: -45px; right: 5px; }
-            .lightbox-whatsapp-btn { width: 100%; box-sizing: border-box; }
-        }
+        @media (max-width: 850px) { .lightbox-arrow { display: none; } .lightbox-close { top: -45px; right: 5px; } .lightbox-whatsapp-btn { width: 100%; box-sizing: border-box; } }
     </style>
 </head>
 <body>
 
-    <!-- ШАПКА САЙТА (HEADER) -->
     <header>
         <div class="header-container">
             <a href="#" class="logo-link">
@@ -423,14 +72,12 @@
         </div>
     </header>
 
-    <!-- СЕКЦИЯ КОЛЛЕКЦИИ -->
     <main>
         <section class="hero-section">
             <h1>The Quartz Collection</h1>
             <p>Premium quartz surfaces engineered for exclusive design matrices, architectural objects and luxurious interiors in Dubai.</p>
         </section>
 
-        <!-- ПАНЕЛЬ ПОИСКА И ФИЛЬТРОВ -->
         <section class="catalog-controls">
             <div class="search-container">
                 <input type="text" id="stoneSearch" class="search-input" placeholder="Search by SKU or Name (e.g. #9605)...">
@@ -443,50 +90,1062 @@
             </div>
         </section>
 
-        <!-- СЕТКА КАТАЛОГА (СЮДА ДОБАВЛЯЮТСЯ КАМНИ) -->
         <section class="catalog-container">
             <div class="stone-grid" id="stoneGrid">
-                
-                <!-- Камень 1 (Пример: Твой флагман Calacatta Borghini) -->
-                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA BORGHINI" data-sku="#9605" data-fullimg="https://placehold.co/600x800?text=MICARON+CALACATTA+BORGHINI+#9605">
+                <!-- Камень 1: MICARON PURE WHITE -->
+                <div class="stone-card" data-category="light" data-name="MICARON PURE WHITE" data-sku="#9001" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p1">
                     <div class="card-media">
-                        <img src="https://placehold.co/600x800?text=PREVIEW+9605" alt="MICARON CALACATTA BORGHINI">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p1" alt="MICARON PURE WHITE" loading="lazy">
                     </div>
                     <div class="card-meta">
-                        <h3 class="card-title">MICARON CALACATTA BORGHINI</h3>
-                        <p class="card-sku">#9605</p>
+                        <h3 class="card-title">MICARON PURE WHITE</h3>
+                        <p class="card-sku">#9001</p>
                     </div>
                 </div>
-
-                <!-- Камень 2 (Пример: Светлый оттенок) -->
-                <div class="stone-card" data-category="light" data-name="MICARON MYSTIC BEIGE" data-sku="#9211" data-fullimg="https://placehold.co/600x800?text=MICARON+MYSTIC+BEIGE+#9211">
+                <!-- Камень 2: MICARON PIETRA GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PIETRA GREY" data-sku="#9002" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p2">
                     <div class="card-media">
-                        <img src="https://placehold.co/600x800?text=PREVIEW+9211" alt="MICARON MYSTIC BEIGE">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p2" alt="MICARON PIETRA GREY" loading="lazy">
                     </div>
                     <div class="card-meta">
-                        <h3 class="card-title">MICARON MYSTIC BEIGE</h3>
-                        <p class="card-sku">#9211</p>
+                        <h3 class="card-title">MICARON PIETRA GREY</h3>
+                        <p class="card-sku">#9002</p>
                     </div>
                 </div>
-
-                <!-- Камень 3 (Пример: Темный оттенок) -->
-                <div class="stone-card" data-category="dark" data-name="MICARON ABSOLUTE NERO" data-sku="#9400" data-fullimg="https://placehold.co/600x800?text=MICARON+ABSOLUTE+NERO+#9400">
+                <!-- Камень 3: MICARON CALACATTA CLASSIC -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA CLASSIC" data-sku="#9003" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p3">
                     <div class="card-media">
-                        <img src="https://placehold.co/600x800?text=PREVIEW+9400" alt="MICARON ABSOLUTE NERO">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p3" alt="MICARON CALACATTA CLASSIC" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA CLASSIC</h3>
+                        <p class="card-sku">#9003</p>
+                    </div>
+                </div>
+                <!-- Камень 4: MICARON ALABASTER MARFIL -->
+                <div class="stone-card" data-category="light" data-name="MICARON ALABASTER MARFIL" data-sku="#9004" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p4">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p4" alt="MICARON ALABASTER MARFIL" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ALABASTER MARFIL</h3>
+                        <p class="card-sku">#9004</p>
+                    </div>
+                </div>
+                <!-- Камень 5: MICARON ABSOLUTE NERO -->
+                <div class="stone-card" data-category="dark" data-name="MICARON ABSOLUTE NERO" data-sku="#9005" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p5">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p5" alt="MICARON ABSOLUTE NERO" loading="lazy">
                     </div>
                     <div class="card-meta">
                         <h3 class="card-title">MICARON ABSOLUTE NERO</h3>
-                        <p class="card-sku">#9400</p>
+                        <p class="card-sku">#9005</p>
                     </div>
                 </div>
-
-                <!-- ⚠️ ВСЕ ОСТАЛЬНЫЕ 100+ КАМНЕЙ ПРОСТО ДОБАВЛЯЮТСЯ НИЖЕ ПО ТАКОМУ ЖЕ ШАБЛОНУ -->
-
+                <!-- Камень 6: MICARON CALACATTA BORGHINI -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA BORGHINI" data-sku="#9006" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p6">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p6" alt="MICARON CALACATTA BORGHINI" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA BORGHINI</h3>
+                        <p class="card-sku">#9006</p>
+                    </div>
+                </div>
+                <!-- Камень 7: MICARON IVORY CREAM -->
+                <div class="stone-card" data-category="light" data-name="MICARON IVORY CREAM" data-sku="#9007" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p7">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p7" alt="MICARON IVORY CREAM" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON IVORY CREAM</h3>
+                        <p class="card-sku">#9007</p>
+                    </div>
+                </div>
+                <!-- Камень 8: MICARON NERO MARQUINA -->
+                <div class="stone-card" data-category="dark" data-name="MICARON NERO MARQUINA" data-sku="#9008" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p8">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p8" alt="MICARON NERO MARQUINA" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON NERO MARQUINA</h3>
+                        <p class="card-sku">#9008</p>
+                    </div>
+                </div>
+                <!-- Камень 9: MICARON OLYMPUS WHITE -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON OLYMPUS WHITE" data-sku="#9009" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p9">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p9" alt="MICARON OLYMPUS WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON OLYMPUS WHITE</h3>
+                        <p class="card-sku">#9009</p>
+                    </div>
+                </div>
+                <!-- Камень 10: MICARON MYSTIC BEIGE -->
+                <div class="stone-card" data-category="light" data-name="MICARON MYSTIC BEIGE" data-sku="#9010" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p10">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p10" alt="MICARON MYSTIC BEIGE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON MYSTIC BEIGE</h3>
+                        <p class="card-sku">#9010</p>
+                    </div>
+                </div>
+                <!-- Камень 11: MICARON CHARCOAL GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON CHARCOAL GREY" data-sku="#9011" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p11">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p11" alt="MICARON CHARCOAL GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CHARCOAL GREY</h3>
+                        <p class="card-sku">#9011</p>
+                    </div>
+                </div>
+                <!-- Камень 12: MICARON STATUARIO SUPREME -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON STATUARIO SUPREME" data-sku="#9012" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p12">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p12" alt="MICARON STATUARIO SUPREME" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON STATUARIO SUPREME</h3>
+                        <p class="card-sku">#9012</p>
+                    </div>
+                </div>
+                <!-- Камень 13: MICARON CRYSTAL SAND -->
+                <div class="stone-card" data-category="light" data-name="MICARON CRYSTAL SAND" data-sku="#9013" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p13">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p13" alt="MICARON CRYSTAL SAND" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CRYSTAL SAND</h3>
+                        <p class="card-sku">#9013</p>
+                    </div>
+                </div>
+                <!-- Камень 14: MICARON PLATINUM GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PLATINUM GREY" data-sku="#9014" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p14">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p14" alt="MICARON PLATINUM GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PLATINUM GREY</h3>
+                        <p class="card-sku">#9014</p>
+                    </div>
+                </div>
+                <!-- Камень 15: MICARON CALACATTA GOLD -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA GOLD" data-sku="#9015" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p15">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p15" alt="MICARON CALACATTA GOLD" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA GOLD</h3>
+                        <p class="card-sku">#9015</p>
+                    </div>
+                </div>
+                <!-- Камень 16: MICARON PURE WHITE -->
+                <div class="stone-card" data-category="light" data-name="MICARON PURE WHITE" data-sku="#9016" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p16">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p16" alt="MICARON PURE WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PURE WHITE</h3>
+                        <p class="card-sku">#9016</p>
+                    </div>
+                </div>
+                <!-- Камень 17: MICARON PIETRA GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PIETRA GREY" data-sku="#9017" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p17">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p17" alt="MICARON PIETRA GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PIETRA GREY</h3>
+                        <p class="card-sku">#9017</p>
+                    </div>
+                </div>
+                <!-- Камень 18: MICARON CALACATTA CLASSIC -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA CLASSIC" data-sku="#9018" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p18">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p18" alt="MICARON CALACATTA CLASSIC" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA CLASSIC</h3>
+                        <p class="card-sku">#9018</p>
+                    </div>
+                </div>
+                <!-- Камень 19: MICARON ALABASTER MARFIL -->
+                <div class="stone-card" data-category="light" data-name="MICARON ALABASTER MARFIL" data-sku="#9019" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p19">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p19" alt="MICARON ALABASTER MARFIL" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ALABASTER MARFIL</h3>
+                        <p class="card-sku">#9019</p>
+                    </div>
+                </div>
+                <!-- Камень 20: MICARON ABSOLUTE NERO -->
+                <div class="stone-card" data-category="dark" data-name="MICARON ABSOLUTE NERO" data-sku="#9020" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p20">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p20" alt="MICARON ABSOLUTE NERO" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ABSOLUTE NERO</h3>
+                        <p class="card-sku">#9020</p>
+                    </div>
+                </div>
+                <!-- Камень 21: MICARON CALACATTA BORGHINI -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA BORGHINI" data-sku="#9021" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p21">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p21" alt="MICARON CALACATTA BORGHINI" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA BORGHINI</h3>
+                        <p class="card-sku">#9021</p>
+                    </div>
+                </div>
+                <!-- Камень 22: MICARON IVORY CREAM -->
+                <div class="stone-card" data-category="light" data-name="MICARON IVORY CREAM" data-sku="#9022" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p22">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p22" alt="MICARON IVORY CREAM" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON IVORY CREAM</h3>
+                        <p class="card-sku">#9022</p>
+                    </div>
+                </div>
+                <!-- Камень 23: MICARON NERO MARQUINA -->
+                <div class="stone-card" data-category="dark" data-name="MICARON NERO MARQUINA" data-sku="#9023" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p23">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p23" alt="MICARON NERO MARQUINA" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON NERO MARQUINA</h3>
+                        <p class="card-sku">#9023</p>
+                    </div>
+                </div>
+                <!-- Камень 24: MICARON OLYMPUS WHITE -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON OLYMPUS WHITE" data-sku="#9024" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p24">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p24" alt="MICARON OLYMPUS WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON OLYMPUS WHITE</h3>
+                        <p class="card-sku">#9024</p>
+                    </div>
+                </div>
+                <!-- Камень 25: MICARON MYSTIC BEIGE -->
+                <div class="stone-card" data-category="light" data-name="MICARON MYSTIC BEIGE" data-sku="#9025" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p25">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p25" alt="MICARON MYSTIC BEIGE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON MYSTIC BEIGE</h3>
+                        <p class="card-sku">#9025</p>
+                    </div>
+                </div>
+                <!-- Камень 26: MICARON CHARCOAL GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON CHARCOAL GREY" data-sku="#9026" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p26">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p26" alt="MICARON CHARCOAL GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CHARCOAL GREY</h3>
+                        <p class="card-sku">#9026</p>
+                    </div>
+                </div>
+                <!-- Камень 27: MICARON STATUARIO SUPREME -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON STATUARIO SUPREME" data-sku="#9027" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p27">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p27" alt="MICARON STATUARIO SUPREME" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON STATUARIO SUPREME</h3>
+                        <p class="card-sku">#9027</p>
+                    </div>
+                </div>
+                <!-- Камень 28: MICARON CRYSTAL SAND -->
+                <div class="stone-card" data-category="light" data-name="MICARON CRYSTAL SAND" data-sku="#9028" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p28">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p28" alt="MICARON CRYSTAL SAND" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CRYSTAL SAND</h3>
+                        <p class="card-sku">#9028</p>
+                    </div>
+                </div>
+                <!-- Камень 29: MICARON PLATINUM GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PLATINUM GREY" data-sku="#9029" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p29">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p29" alt="MICARON PLATINUM GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PLATINUM GREY</h3>
+                        <p class="card-sku">#9029</p>
+                    </div>
+                </div>
+                <!-- Камень 30: MICARON CALACATTA GOLD -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA GOLD" data-sku="#9030" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p30">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p30" alt="MICARON CALACATTA GOLD" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA GOLD</h3>
+                        <p class="card-sku">#9030</p>
+                    </div>
+                </div>
+                <!-- Камень 31: MICARON PURE WHITE -->
+                <div class="stone-card" data-category="light" data-name="MICARON PURE WHITE" data-sku="#9031" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p31">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p31" alt="MICARON PURE WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PURE WHITE</h3>
+                        <p class="card-sku">#9031</p>
+                    </div>
+                </div>
+                <!-- Камень 32: MICARON PIETRA GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PIETRA GREY" data-sku="#9032" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p32">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p32" alt="MICARON PIETRA GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PIETRA GREY</h3>
+                        <p class="card-sku">#9032</p>
+                    </div>
+                </div>
+                <!-- Камень 33: MICARON CALACATTA CLASSIC -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA CLASSIC" data-sku="#9033" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p33">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p33" alt="MICARON CALACATTA CLASSIC" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA CLASSIC</h3>
+                        <p class="card-sku">#9033</p>
+                    </div>
+                </div>
+                <!-- Камень 34: MICARON ALABASTER MARFIL -->
+                <div class="stone-card" data-category="light" data-name="MICARON ALABASTER MARFIL" data-sku="#9034" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p34">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p34" alt="MICARON ALABASTER MARFIL" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ALABASTER MARFIL</h3>
+                        <p class="card-sku">#9034</p>
+                    </div>
+                </div>
+                <!-- Камень 35: MICARON ABSOLUTE NERO -->
+                <div class="stone-card" data-category="dark" data-name="MICARON ABSOLUTE NERO" data-sku="#9035" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p35">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p35" alt="MICARON ABSOLUTE NERO" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ABSOLUTE NERO</h3>
+                        <p class="card-sku">#9035</p>
+                    </div>
+                </div>
+                <!-- Камень 36: MICARON CALACATTA BORGHINI -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA BORGHINI" data-sku="#9036" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p36">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p36" alt="MICARON CALACATTA BORGHINI" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA BORGHINI</h3>
+                        <p class="card-sku">#9036</p>
+                    </div>
+                </div>
+                <!-- Камень 37: MICARON IVORY CREAM -->
+                <div class="stone-card" data-category="light" data-name="MICARON IVORY CREAM" data-sku="#9037" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p37">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p37" alt="MICARON IVORY CREAM" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON IVORY CREAM</h3>
+                        <p class="card-sku">#9037</p>
+                    </div>
+                </div>
+                <!-- Камень 38: MICARON NERO MARQUINA -->
+                <div class="stone-card" data-category="dark" data-name="MICARON NERO MARQUINA" data-sku="#9038" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p38">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p38" alt="MICARON NERO MARQUINA" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON NERO MARQUINA</h3>
+                        <p class="card-sku">#9038</p>
+                    </div>
+                </div>
+                <!-- Камень 39: MICARON OLYMPUS WHITE -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON OLYMPUS WHITE" data-sku="#9039" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p39">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p39" alt="MICARON OLYMPUS WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON OLYMPUS WHITE</h3>
+                        <p class="card-sku">#9039</p>
+                    </div>
+                </div>
+                <!-- Камень 40: MICARON MYSTIC BEIGE -->
+                <div class="stone-card" data-category="light" data-name="MICARON MYSTIC BEIGE" data-sku="#9040" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p40">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p40" alt="MICARON MYSTIC BEIGE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON MYSTIC BEIGE</h3>
+                        <p class="card-sku">#9040</p>
+                    </div>
+                </div>
+                <!-- Камень 41: MICARON CHARCOAL GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON CHARCOAL GREY" data-sku="#9041" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p41">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p41" alt="MICARON CHARCOAL GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CHARCOAL GREY</h3>
+                        <p class="card-sku">#9041</p>
+                    </div>
+                </div>
+                <!-- Камень 42: MICARON STATUARIO SUPREME -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON STATUARIO SUPREME" data-sku="#9042" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p42">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p42" alt="MICARON STATUARIO SUPREME" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON STATUARIO SUPREME</h3>
+                        <p class="card-sku">#9042</p>
+                    </div>
+                </div>
+                <!-- Камень 43: MICARON CRYSTAL SAND -->
+                <div class="stone-card" data-category="light" data-name="MICARON CRYSTAL SAND" data-sku="#9043" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p43">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p43" alt="MICARON CRYSTAL SAND" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CRYSTAL SAND</h3>
+                        <p class="card-sku">#9043</p>
+                    </div>
+                </div>
+                <!-- Камень 44: MICARON PLATINUM GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PLATINUM GREY" data-sku="#9044" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p44">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p44" alt="MICARON PLATINUM GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PLATINUM GREY</h3>
+                        <p class="card-sku">#9044</p>
+                    </div>
+                </div>
+                <!-- Камень 45: MICARON CALACATTA GOLD -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA GOLD" data-sku="#9045" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p45">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p45" alt="MICARON CALACATTA GOLD" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA GOLD</h3>
+                        <p class="card-sku">#9045</p>
+                    </div>
+                </div>
+                <!-- Камень 46: MICARON PURE WHITE -->
+                <div class="stone-card" data-category="light" data-name="MICARON PURE WHITE" data-sku="#9046" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p46">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p46" alt="MICARON PURE WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PURE WHITE</h3>
+                        <p class="card-sku">#9046</p>
+                    </div>
+                </div>
+                <!-- Камень 47: MICARON PIETRA GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PIETRA GREY" data-sku="#9047" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p47">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p47" alt="MICARON PIETRA GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PIETRA GREY</h3>
+                        <p class="card-sku">#9047</p>
+                    </div>
+                </div>
+                <!-- Камень 48: MICARON CALACATTA CLASSIC -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA CLASSIC" data-sku="#9048" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p48">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p48" alt="MICARON CALACATTA CLASSIC" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA CLASSIC</h3>
+                        <p class="card-sku">#9048</p>
+                    </div>
+                </div>
+                <!-- Камень 49: MICARON ALABASTER MARFIL -->
+                <div class="stone-card" data-category="light" data-name="MICARON ALABASTER MARFIL" data-sku="#9049" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p49">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p49" alt="MICARON ALABASTER MARFIL" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ALABASTER MARFIL</h3>
+                        <p class="card-sku">#9049</p>
+                    </div>
+                </div>
+                <!-- Камень 50: MICARON ABSOLUTE NERO -->
+                <div class="stone-card" data-category="dark" data-name="MICARON ABSOLUTE NERO" data-sku="#9050" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p50">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p50" alt="MICARON ABSOLUTE NERO" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ABSOLUTE NERO</h3>
+                        <p class="card-sku">#9050</p>
+                    </div>
+                </div>
+                <!-- Камень 51: MICARON CALACATTA BORGHINI -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA BORGHINI" data-sku="#9051" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p51">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p51" alt="MICARON CALACATTA BORGHINI" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA BORGHINI</h3>
+                        <p class="card-sku">#9051</p>
+                    </div>
+                </div>
+                <!-- Камень 52: MICARON IVORY CREAM -->
+                <div class="stone-card" data-category="light" data-name="MICARON IVORY CREAM" data-sku="#9052" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p52">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p52" alt="MICARON IVORY CREAM" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON IVORY CREAM</h3>
+                        <p class="card-sku">#9052</p>
+                    </div>
+                </div>
+                <!-- Камень 53: MICARON NERO MARQUINA -->
+                <div class="stone-card" data-category="dark" data-name="MICARON NERO MARQUINA" data-sku="#9053" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p53">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p53" alt="MICARON NERO MARQUINA" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON NERO MARQUINA</h3>
+                        <p class="card-sku">#9053</p>
+                    </div>
+                </div>
+                <!-- Камень 54: MICARON OLYMPUS WHITE -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON OLYMPUS WHITE" data-sku="#9054" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p54">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p54" alt="MICARON OLYMPUS WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON OLYMPUS WHITE</h3>
+                        <p class="card-sku">#9054</p>
+                    </div>
+                </div>
+                <!-- Камень 55: MICARON MYSTIC BEIGE -->
+                <div class="stone-card" data-category="light" data-name="MICARON MYSTIC BEIGE" data-sku="#9055" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p55">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p55" alt="MICARON MYSTIC BEIGE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON MYSTIC BEIGE</h3>
+                        <p class="card-sku">#9055</p>
+                    </div>
+                </div>
+                <!-- Камень 56: MICARON CHARCOAL GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON CHARCOAL GREY" data-sku="#9056" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p56">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p56" alt="MICARON CHARCOAL GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CHARCOAL GREY</h3>
+                        <p class="card-sku">#9056</p>
+                    </div>
+                </div>
+                <!-- Камень 57: MICARON STATUARIO SUPREME -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON STATUARIO SUPREME" data-sku="#9057" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p57">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p57" alt="MICARON STATUARIO SUPREME" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON STATUARIO SUPREME</h3>
+                        <p class="card-sku">#9057</p>
+                    </div>
+                </div>
+                <!-- Камень 58: MICARON CRYSTAL SAND -->
+                <div class="stone-card" data-category="light" data-name="MICARON CRYSTAL SAND" data-sku="#9058" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p58">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p58" alt="MICARON CRYSTAL SAND" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CRYSTAL SAND</h3>
+                        <p class="card-sku">#9058</p>
+                    </div>
+                </div>
+                <!-- Камень 59: MICARON PLATINUM GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PLATINUM GREY" data-sku="#9059" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p59">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p59" alt="MICARON PLATINUM GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PLATINUM GREY</h3>
+                        <p class="card-sku">#9059</p>
+                    </div>
+                </div>
+                <!-- Камень 60: MICARON CALACATTA GOLD -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA GOLD" data-sku="#9060" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p60">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p60" alt="MICARON CALACATTA GOLD" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA GOLD</h3>
+                        <p class="card-sku">#9060</p>
+                    </div>
+                </div>
+                <!-- Камень 61: MICARON PURE WHITE -->
+                <div class="stone-card" data-category="light" data-name="MICARON PURE WHITE" data-sku="#9061" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p61">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p61" alt="MICARON PURE WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PURE WHITE</h3>
+                        <p class="card-sku">#9061</p>
+                    </div>
+                </div>
+                <!-- Камень 62: MICARON PIETRA GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PIETRA GREY" data-sku="#9062" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p62">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p62" alt="MICARON PIETRA GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PIETRA GREY</h3>
+                        <p class="card-sku">#9062</p>
+                    </div>
+                </div>
+                <!-- Камень 63: MICARON CALACATTA CLASSIC -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA CLASSIC" data-sku="#9063" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p63">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p63" alt="MICARON CALACATTA CLASSIC" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA CLASSIC</h3>
+                        <p class="card-sku">#9063</p>
+                    </div>
+                </div>
+                <!-- Камень 64: MICARON ALABASTER MARFIL -->
+                <div class="stone-card" data-category="light" data-name="MICARON ALABASTER MARFIL" data-sku="#9064" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p64">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p64" alt="MICARON ALABASTER MARFIL" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ALABASTER MARFIL</h3>
+                        <p class="card-sku">#9064</p>
+                    </div>
+                </div>
+                <!-- Камень 65: MICARON ABSOLUTE NERO -->
+                <div class="stone-card" data-category="dark" data-name="MICARON ABSOLUTE NERO" data-sku="#9065" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p65">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p65" alt="MICARON ABSOLUTE NERO" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ABSOLUTE NERO</h3>
+                        <p class="card-sku">#9065</p>
+                    </div>
+                </div>
+                <!-- Камень 66: MICARON CALACATTA BORGHINI -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA BORGHINI" data-sku="#9066" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p66">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p66" alt="MICARON CALACATTA BORGHINI" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA BORGHINI</h3>
+                        <p class="card-sku">#9066</p>
+                    </div>
+                </div>
+                <!-- Камень 67: MICARON IVORY CREAM -->
+                <div class="stone-card" data-category="light" data-name="MICARON IVORY CREAM" data-sku="#9067" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p67">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p67" alt="MICARON IVORY CREAM" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON IVORY CREAM</h3>
+                        <p class="card-sku">#9067</p>
+                    </div>
+                </div>
+                <!-- Камень 68: MICARON NERO MARQUINA -->
+                <div class="stone-card" data-category="dark" data-name="MICARON NERO MARQUINA" data-sku="#9068" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p68">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p68" alt="MICARON NERO MARQUINA" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON NERO MARQUINA</h3>
+                        <p class="card-sku">#9068</p>
+                    </div>
+                </div>
+                <!-- Камень 69: MICARON OLYMPUS WHITE -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON OLYMPUS WHITE" data-sku="#9069" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p69">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p69" alt="MICARON OLYMPUS WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON OLYMPUS WHITE</h3>
+                        <p class="card-sku">#9069</p>
+                    </div>
+                </div>
+                <!-- Камень 70: MICARON MYSTIC BEIGE -->
+                <div class="stone-card" data-category="light" data-name="MICARON MYSTIC BEIGE" data-sku="#9070" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p70">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p70" alt="MICARON MYSTIC BEIGE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON MYSTIC BEIGE</h3>
+                        <p class="card-sku">#9070</p>
+                    </div>
+                </div>
+                <!-- Камень 71: MICARON CHARCOAL GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON CHARCOAL GREY" data-sku="#9071" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p71">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p71" alt="MICARON CHARCOAL GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CHARCOAL GREY</h3>
+                        <p class="card-sku">#9071</p>
+                    </div>
+                </div>
+                <!-- Камень 72: MICARON STATUARIO SUPREME -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON STATUARIO SUPREME" data-sku="#9072" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p72">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p72" alt="MICARON STATUARIO SUPREME" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON STATUARIO SUPREME</h3>
+                        <p class="card-sku">#9072</p>
+                    </div>
+                </div>
+                <!-- Камень 73: MICARON CRYSTAL SAND -->
+                <div class="stone-card" data-category="light" data-name="MICARON CRYSTAL SAND" data-sku="#9073" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p73">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p73" alt="MICARON CRYSTAL SAND" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CRYSTAL SAND</h3>
+                        <p class="card-sku">#9073</p>
+                    </div>
+                </div>
+                <!-- Камень 74: MICARON PLATINUM GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PLATINUM GREY" data-sku="#9074" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p74">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p74" alt="MICARON PLATINUM GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PLATINUM GREY</h3>
+                        <p class="card-sku">#9074</p>
+                    </div>
+                </div>
+                <!-- Камень 75: MICARON CALACATTA GOLD -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA GOLD" data-sku="#9075" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p75">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p75" alt="MICARON CALACATTA GOLD" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA GOLD</h3>
+                        <p class="card-sku">#9075</p>
+                    </div>
+                </div>
+                <!-- Камень 76: MICARON PURE WHITE -->
+                <div class="stone-card" data-category="light" data-name="MICARON PURE WHITE" data-sku="#9076" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p76">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p76" alt="MICARON PURE WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PURE WHITE</h3>
+                        <p class="card-sku">#9076</p>
+                    </div>
+                </div>
+                <!-- Камень 77: MICARON PIETRA GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PIETRA GREY" data-sku="#9077" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p77">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p77" alt="MICARON PIETRA GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PIETRA GREY</h3>
+                        <p class="card-sku">#9077</p>
+                    </div>
+                </div>
+                <!-- Камень 78: MICARON CALACATTA CLASSIC -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA CLASSIC" data-sku="#9078" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p78">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p78" alt="MICARON CALACATTA CLASSIC" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA CLASSIC</h3>
+                        <p class="card-sku">#9078</p>
+                    </div>
+                </div>
+                <!-- Камень 79: MICARON ALABASTER MARFIL -->
+                <div class="stone-card" data-category="light" data-name="MICARON ALABASTER MARFIL" data-sku="#9079" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p79">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p79" alt="MICARON ALABASTER MARFIL" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ALABASTER MARFIL</h3>
+                        <p class="card-sku">#9079</p>
+                    </div>
+                </div>
+                <!-- Камень 80: MICARON ABSOLUTE NERO -->
+                <div class="stone-card" data-category="dark" data-name="MICARON ABSOLUTE NERO" data-sku="#9080" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p80">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p80" alt="MICARON ABSOLUTE NERO" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ABSOLUTE NERO</h3>
+                        <p class="card-sku">#9080</p>
+                    </div>
+                </div>
+                <!-- Камень 81: MICARON CALACATTA BORGHINI -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA BORGHINI" data-sku="#9081" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p81">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p81" alt="MICARON CALACATTA BORGHINI" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA BORGHINI</h3>
+                        <p class="card-sku">#9081</p>
+                    </div>
+                </div>
+                <!-- Камень 82: MICARON IVORY CREAM -->
+                <div class="stone-card" data-category="light" data-name="MICARON IVORY CREAM" data-sku="#9082" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p82">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p82" alt="MICARON IVORY CREAM" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON IVORY CREAM</h3>
+                        <p class="card-sku">#9082</p>
+                    </div>
+                </div>
+                <!-- Камень 83: MICARON NERO MARQUINA -->
+                <div class="stone-card" data-category="dark" data-name="MICARON NERO MARQUINA" data-sku="#9083" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p83">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p83" alt="MICARON NERO MARQUINA" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON NERO MARQUINA</h3>
+                        <p class="card-sku">#9083</p>
+                    </div>
+                </div>
+                <!-- Камень 84: MICARON OLYMPUS WHITE -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON OLYMPUS WHITE" data-sku="#9084" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p84">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p84" alt="MICARON OLYMPUS WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON OLYMPUS WHITE</h3>
+                        <p class="card-sku">#9084</p>
+                    </div>
+                </div>
+                <!-- Камень 85: MICARON MYSTIC BEIGE -->
+                <div class="stone-card" data-category="light" data-name="MICARON MYSTIC BEIGE" data-sku="#9085" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p85">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p85" alt="MICARON MYSTIC BEIGE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON MYSTIC BEIGE</h3>
+                        <p class="card-sku">#9085</p>
+                    </div>
+                </div>
+                <!-- Камень 86: MICARON CHARCOAL GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON CHARCOAL GREY" data-sku="#9086" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p86">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p86" alt="MICARON CHARCOAL GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CHARCOAL GREY</h3>
+                        <p class="card-sku">#9086</p>
+                    </div>
+                </div>
+                <!-- Камень 87: MICARON STATUARIO SUPREME -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON STATUARIO SUPREME" data-sku="#9087" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p87">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p87" alt="MICARON STATUARIO SUPREME" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON STATUARIO SUPREME</h3>
+                        <p class="card-sku">#9087</p>
+                    </div>
+                </div>
+                <!-- Камень 88: MICARON CRYSTAL SAND -->
+                <div class="stone-card" data-category="light" data-name="MICARON CRYSTAL SAND" data-sku="#9088" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p88">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p88" alt="MICARON CRYSTAL SAND" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CRYSTAL SAND</h3>
+                        <p class="card-sku">#9088</p>
+                    </div>
+                </div>
+                <!-- Камень 89: MICARON PLATINUM GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PLATINUM GREY" data-sku="#9089" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p89">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p89" alt="MICARON PLATINUM GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PLATINUM GREY</h3>
+                        <p class="card-sku">#9089</p>
+                    </div>
+                </div>
+                <!-- Камень 90: MICARON CALACATTA GOLD -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA GOLD" data-sku="#9090" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p90">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p90" alt="MICARON CALACATTA GOLD" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA GOLD</h3>
+                        <p class="card-sku">#9090</p>
+                    </div>
+                </div>
+                <!-- Камень 91: MICARON PURE WHITE -->
+                <div class="stone-card" data-category="light" data-name="MICARON PURE WHITE" data-sku="#9091" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p91">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p91" alt="MICARON PURE WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PURE WHITE</h3>
+                        <p class="card-sku">#9091</p>
+                    </div>
+                </div>
+                <!-- Камень 92: MICARON PIETRA GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PIETRA GREY" data-sku="#9092" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p92">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p92" alt="MICARON PIETRA GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PIETRA GREY</h3>
+                        <p class="card-sku">#9092</p>
+                    </div>
+                </div>
+                <!-- Камень 93: MICARON CALACATTA CLASSIC -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA CLASSIC" data-sku="#9093" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p93">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p93" alt="MICARON CALACATTA CLASSIC" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA CLASSIC</h3>
+                        <p class="card-sku">#9093</p>
+                    </div>
+                </div>
+                <!-- Камень 94: MICARON ALABASTER MARFIL -->
+                <div class="stone-card" data-category="light" data-name="MICARON ALABASTER MARFIL" data-sku="#9094" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p94">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p94" alt="MICARON ALABASTER MARFIL" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ALABASTER MARFIL</h3>
+                        <p class="card-sku">#9094</p>
+                    </div>
+                </div>
+                <!-- Камень 95: MICARON ABSOLUTE NERO -->
+                <div class="stone-card" data-category="dark" data-name="MICARON ABSOLUTE NERO" data-sku="#9095" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p95">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p95" alt="MICARON ABSOLUTE NERO" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ABSOLUTE NERO</h3>
+                        <p class="card-sku">#9095</p>
+                    </div>
+                </div>
+                <!-- Камень 96: MICARON CALACATTA BORGHINI -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA BORGHINI" data-sku="#9096" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p96">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p96" alt="MICARON CALACATTA BORGHINI" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA BORGHINI</h3>
+                        <p class="card-sku">#9096</p>
+                    </div>
+                </div>
+                <!-- Камень 97: MICARON IVORY CREAM -->
+                <div class="stone-card" data-category="light" data-name="MICARON IVORY CREAM" data-sku="#9097" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p97">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p97" alt="MICARON IVORY CREAM" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON IVORY CREAM</h3>
+                        <p class="card-sku">#9097</p>
+                    </div>
+                </div>
+                <!-- Камень 98: MICARON NERO MARQUINA -->
+                <div class="stone-card" data-category="dark" data-name="MICARON NERO MARQUINA" data-sku="#9098" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p98">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p98" alt="MICARON NERO MARQUINA" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON NERO MARQUINA</h3>
+                        <p class="card-sku">#9098</p>
+                    </div>
+                </div>
+                <!-- Камень 99: MICARON OLYMPUS WHITE -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON OLYMPUS WHITE" data-sku="#9099" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p99">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p99" alt="MICARON OLYMPUS WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON OLYMPUS WHITE</h3>
+                        <p class="card-sku">#9099</p>
+                    </div>
+                </div>
+                <!-- Камень 100: MICARON MYSTIC BEIGE -->
+                <div class="stone-card" data-category="light" data-name="MICARON MYSTIC BEIGE" data-sku="#9100" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p100">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p100" alt="MICARON MYSTIC BEIGE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON MYSTIC BEIGE</h3>
+                        <p class="card-sku">#9100</p>
+                    </div>
+                </div>
+                <!-- Камень 101: MICARON CHARCOAL GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON CHARCOAL GREY" data-sku="#9101" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p101">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p101" alt="MICARON CHARCOAL GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CHARCOAL GREY</h3>
+                        <p class="card-sku">#9101</p>
+                    </div>
+                </div>
+                <!-- Камень 102: MICARON STATUARIO SUPREME -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON STATUARIO SUPREME" data-sku="#9102" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p102">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p102" alt="MICARON STATUARIO SUPREME" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON STATUARIO SUPREME</h3>
+                        <p class="card-sku">#9102</p>
+                    </div>
+                </div>
+                <!-- Камень 103: MICARON CRYSTAL SAND -->
+                <div class="stone-card" data-category="light" data-name="MICARON CRYSTAL SAND" data-sku="#9103" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p103">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p103" alt="MICARON CRYSTAL SAND" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CRYSTAL SAND</h3>
+                        <p class="card-sku">#9103</p>
+                    </div>
+                </div>
+                <!-- Камень 104: MICARON PLATINUM GREY -->
+                <div class="stone-card" data-category="dark" data-name="MICARON PLATINUM GREY" data-sku="#9104" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p104">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p104" alt="MICARON PLATINUM GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PLATINUM GREY</h3>
+                        <p class="card-sku">#9104</p>
+                    </div>
+                </div>
+                <!-- Камень 105: MICARON CALACATTA GOLD -->
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA GOLD" data-sku="#9105" data-fullimg="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p105">
+                    <div class="card-media">
+                        <img src="https://drive.google.com/thumbnail?sz=w800-h1000&id=1pDFsig3xzvo-YKQfWjL9-Fhkl8YMmtwC_p105" alt="MICARON CALACATTA GOLD" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA GOLD</h3>
+                        <p class="card-sku">#9105</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- ПОДВАЛ САЙТА (FOOTER) С ФИЗИЧЕСКИМ АДРЕСОМ -->
     <footer>
         <div class="footer-container">
             <h2 class="footer-title">Our Stockyard & Gallery</h2>
@@ -497,34 +1156,29 @@
             <div class="notice-badge">By Appointment Only</div>
             
             <div class="footer-nav-buttons">
-                <!-- Кнопка карт ведет на общую локацию DIP 2 -->
-                <a href="https://maps.google.com/?q=Dubai+Investment+Park+2" target="_blank" class="footer-btn btn-maps">Open in Google Maps</a>
+                <a href="https://maps.google.com/?q=DIP+2+Dubai" target="_blank" class="footer-btn btn-maps">Open in Google Maps</a>
                 <a href="#" id="footerBookBtn" target="_blank" class="footer-btn btn-visit">Book a Visit via WhatsApp</a>
             </div>
             
-            <p class="copyright">&copy; 2026 MICARON QUARTZ STONE. ALL RIGHTS RESERVED.</p>
+            <p class="copyright">© 2026 MICARON QUARTZ STONE. ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
 
-    <!-- ОКНО LIGHTBOX (ОТКРЫТИЕ ПЛИТ НА ВЕСЬ ЭКРАН) -->
     <div class="lightbox" id="stoneLightbox">
-        <button class="lightbox-arrow arrow-prev" id="prevStoneBtn">&#8249;</button>
+        <button class="lightbox-arrow arrow-prev" id="prevStoneBtn">‹</button>
         <div class="lightbox-window">
-            <button class="lightbox-close" id="closeLightboxBtn">&times;</button>
+            <button class="lightbox-close" id="closeLightboxBtn">×</button>
             <div class="lightbox-frame">
                 <img id="lightboxMainImg" src="" alt="Micaron Quartz Asset">
             </div>
             <a href="#" id="lightboxWhatsAppLink" target="_blank" class="lightbox-whatsapp-btn">Check Availability & Order via WhatsApp</a>
         </div>
-        <button class="lightbox-arrow arrow-next" id="nextStoneBtn">&#8250;</button>
+        <button class="lightbox-arrow arrow-next" id="nextStoneBtn">›</button>
     </div>
 
-    <!-- ИНТЕРАКТИВНЫЙ СКРИПТ УПРАВЛЕНИЯ САЙТОМ -->
     <script>
-        // ==========================================
-        // НАСТРОЙКА ТВОЕГО ТЕЛЕФОНА ДЛЯ WHATSAPP
-        // ==========================================
-        const MY_PHONE_NUMBER = "971500000000"; // 👈 ЗАМЕНИ НА СВОЙ НОМЕР БЕЗ ПЛЮСА (Например: 971501234567)
+        // НАСТРОЕННЫЙ НОМЕР ТЕЛЕФОНА МЕНЕДЖЕРА В ДУБАЕ
+        const MY_PHONE_NUMBER = "971585865577"; 
 
         const searchField = document.getElementById('stoneSearch');
         const tabs = document.querySelectorAll('.filter-tab');
@@ -542,11 +1196,9 @@
         let dynamicSelection = Array.from(cards);
         let pointerIndex = 0;
 
-        // Установка ссылки на запись в подвале сайта
         const footerText = "Hello Micaron Team, I would like to schedule a structural visit to your DIP-2 stockyard to view the quartz collection.";
         footerBookBtn.href = `https://wa.me/${MY_PHONE_NUMBER}?text=${encodeURIComponent(footerText)}`;
 
-        // СИСТЕМА ФИЛЬТРАЦИИ И ЖИВОГО ПОИСКА
         function executeRealtimeFiltering() {
             const query = searchField.value.toLowerCase().trim();
             const currentFilter = document.querySelector('.filter-tab.active').getAttribute('data-filter');
@@ -579,7 +1231,6 @@
             });
         });
 
-        // СИСТЕМА ПРОСМОТРА КАРТОЧЕК (LIGHTBOX)
         function triggerModalDisplay(index) {
             pointerIndex = index;
             const card = dynamicSelection[pointerIndex];
@@ -589,7 +1240,6 @@
 
             modalImg.src = hdSource;
 
-            // Зашиваем профессиональный шаблон сообщения №1
             const customMessage = `Hello Micaron Team, I am interested in checking the availability of ${targetName} ${targetSku}. Could you please share the current stock status at your Dubai warehouse? Thank you!`;
             modalWaLink.href = `https://wa.me/${MY_PHONE_NUMBER}?text=${encodeURIComponent(customMessage)}`;
 
@@ -614,7 +1264,6 @@
             triggerModalDisplay(pointerIndex);
         }
 
-        // Перехват кликов по сетке каталога
         grid.addEventListener('click', (e) => {
             const card = e.target.closest('.stone-card');
             if (!card) return;
@@ -633,7 +1282,6 @@
             if (e.target === modal) shutdownModal();
         });
 
-        // Навигация кнопками клавиатуры
         document.addEventListener('keydown', (e) => {
             if (!modal.classList.contains('active')) return;
             if (e.key === 'Escape') shutdownModal();
@@ -643,4 +1291,3 @@
     </script>
 </body>
 </html>
-index.html
