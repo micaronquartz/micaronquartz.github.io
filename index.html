@@ -16,14 +16,14 @@
         .logo-monogram { font-size: 24px; font-weight: 700; letter-spacing: 2px; margin-bottom: 2px; }
         .logo-text { font-size: 14px; font-weight: 300; text-transform: uppercase; letter-spacing: 5px; }
         
-        /* НОВАЯ ГЛАВНАЯ СТРАНИЦА (HERO BANNER) */
+        /* ГЛАВНАЯ СТРАНИЦА (HERO BANNER) */
         .main-hero { 
             height: 100vh; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             position: relative; 
-            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), url('1.PNG') no-repeat center center; 
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('Page1-1.PNG') no-repeat center center; 
             background-size: cover; 
             background-attachment: fixed;
             text-align: center;
@@ -89,7 +89,7 @@
         .btn-visit:hover { background-color: #111111; color: #ffffff; }
         .copyright { font-size: 11px; color: #999999; letter-spacing: 1px; text-transform: uppercase; }
         
-        /* МОДАЛЬНОЕ ОКНО И АНИМАЦИИ */
+        /* МОДАЛЬНОЕ ОКНО */
         .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.99); z-index: 10000; display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
         .lightbox.active { display: flex; opacity: 1; }
         .lightbox-window { position: relative; max-width: 85vh; width: 90%; display: flex; flex-direction: column; align-items: center; }
@@ -154,19 +154,9 @@
         <section class="catalog-container">
             <div class="stone-grid" id="stoneGrid">
                 
-                <div class="stone-card" data-category="light" data-name="MICARON CALACATTA CLASSIC" data-sku="#9001" data-fullimg="1.PNG">
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA BORGHINI" data-sku="#9002" data-fullimg="Page2-3.PNG">
                     <div class="card-media">
-                        <img src="1.PNG" alt="MICARON CALACATTA CLASSIC" loading="lazy">
-                    </div>
-                    <div class="card-meta">
-                        <h3 class="card-title">MICARON CALACATTA CLASSIC</h3>
-                        <p class="card-sku">#9001</p>
-                    </div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA BORGHINI" data-sku="#9002" data-fullimg="2.PNG">
-                    <div class="card-media">
-                        <img src="2.PNG" alt="MICARON CALACATTA BORGHINI" loading="lazy">
+                        <img src="Page2-3.PNG" alt="MICARON CALACATTA BORGHINI" loading="lazy">
                     </div>
                     <div class="card-meta">
                         <h3 class="card-title">MICARON CALACATTA BORGHINI</h3>
@@ -174,9 +164,9 @@
                     </div>
                 </div>
 
-                <div class="stone-card" data-category="calacatta" data-name="MICARON OLYMPUS WHITE" data-sku="#9003" data-fullimg="3.PNG">
+                <div class="stone-card" data-category="calacatta" data-name="MICARON OLYMPUS WHITE" data-sku="#9003" data-fullimg="Page2-4.PNG">
                     <div class="card-media">
-                        <img src="3.PNG" alt="MICARON OLYMPUS WHITE" loading="lazy">
+                        <img src="Page2-4.PNG" alt="MICARON OLYMPUS WHITE" loading="lazy">
                     </div>
                     <div class="card-meta">
                         <h3 class="card-title">MICARON OLYMPUS WHITE</h3>
@@ -184,9 +174,9 @@
                     </div>
                 </div>
 
-                <div class="stone-card" data-category="calacatta" data-name="MICARON STATUARIO SUPREME" data-sku="#9004" data-fullimg="4.PNG">
+                <div class="stone-card" data-category="calacatta" data-name="MICARON STATUARIO SUPREME" data-sku="#9004" data-fullimg="Page2-5.PNG">
                     <div class="card-media">
-                        <img src="4.PNG" alt="MICARON STATUARIO SUPREME" loading="lazy">
+                        <img src="Page2-5.PNG" alt="MICARON STATUARIO SUPREME" loading="lazy">
                     </div>
                     <div class="card-meta">
                         <h3 class="card-title">MICARON STATUARIO SUPREME</h3>
@@ -194,151 +184,137 @@
                     </div>
                 </div>
 
-            </div>
-        </section>
-    </main>
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA GOLD" data-sku="#9005" data-fullimg="Page2-6.PNG">
+                    <div class="card-media">
+                        <img src="Page2-6.PNG" alt="MICARON CALACATTA GOLD" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA GOLD</h3>
+                        <p class="card-sku">#9005</p>
+                    </div>
+                </div>
 
-    <footer>
-        <div class="footer-container">
-            <h2 class="footer-title">Our Stockyard & Gallery</h2>
-            <p class="address-block">
-                Warehouse E-12, DIP 2 (Dubai Investment Park 2),<br>
-                Jebel Ali Industrial Area, Dubai, United Arab Emirates
-            </p>
-            <div class="notice-badge">By Appointment Only</div>
-            
-            <div class="footer-nav-buttons">
-                <a href="https://maps.app.goo.gl/9bN6fU6g4XwHkGsm9" target="_blank" class="footer-btn btn-maps">Open in Google Maps</a>
-                <a href="#" id="footerBookBtn" target="_blank" class="footer-btn btn-visit">Book a Visit via WhatsApp</a>
-            </div>
-            
-            <p class="copyright">© 2026 MICARON QUARTZ STONE. ALL RIGHTS RESERVED.</p>
-        </div>
-    </footer>
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA LAZIO" data-sku="#9006" data-fullimg="Page3-7.PNG">
+                    <div class="card-media">
+                        <img src="Page3-7.PNG" alt="MICARON CALACATTA LAZIO" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA LAZIO</h3>
+                        <p class="card-sku">#9006</p>
+                    </div>
+                </div>
 
-    <div class="lightbox" id="stoneLightbox">
-        <button class="lightbox-arrow arrow-prev" id="prevStoneBtn">‹</button>
-        <div class="lightbox-window">
-            <button class="lightbox-close" id="closeLightboxBtn">×</button>
-            <div class="lightbox-frame">
-                <img id="lightboxMainImg" src="" alt="Micaron Quartz Asset">
-            </div>
-            <a href="#" id="lightboxWhatsAppLink" target="_blank" class="lightbox-whatsapp-btn">Check Availability & Order via WhatsApp</a>
-        </div>
-        <button class="lightbox-arrow arrow-next" id="nextStoneBtn">›</button>
-    </div>
+                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA EXTRA" data-sku="#9007" data-fullimg="Page3-8.PNG">
+                    <div class="card-media">
+                        <img src="Page3-8.PNG" alt="MICARON CALACATTA EXTRA" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CALACATTA EXTRA</h3>
+                        <p class="card-sku">#9007</p>
+                    </div>
+                </div>
 
-    <script>
-        const MY_PHONE_NUMBER = "971585865577"; 
+                <div class="stone-card" data-category="light" data-name="MICARON ARABESCATO" data-sku="#9008" data-fullimg="Page3-9.PNG">
+                    <div class="card-media">
+                        <img src="Page3-9.PNG" alt="MICARON ARABESCATO" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON ARABESCATO</h3>
+                        <p class="card-sku">#9008</p>
+                    </div>
+                </div>
 
-        const searchField = document.getElementById('stoneSearch');
-        const tabs = document.querySelectorAll('.filter-tab');
-        const cards = document.querySelectorAll('.stone-card');
-        const grid = document.getElementById('stoneGrid');
-        
-        const modal = document.getElementById('stoneLightbox');
-        const modalImg = document.getElementById('lightboxMainImg');
-        const modalWaLink = document.getElementById('lightboxWhatsAppLink');
-        const modalClose = document.getElementById('closeLightboxBtn');
-        const modalPrev = document.getElementById('prevStoneBtn');
-        const modalNext = document.getElementById('nextStoneBtn');
-        const footerBookBtn = document.getElementById('footerBookBtn');
+                <div class="stone-card" data-category="light" data-name="MICARON MYSTIQUE WHITE" data-sku="#9009" data-fullimg="Page3-10.PNG">
+                    <div class="card-media">
+                        <img src="Page3-10.PNG" alt="MICARON MYSTIQUE WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON MYSTIQUE WHITE</h3>
+                        <p class="card-sku">#9009</p>
+                    </div>
+                </div>
 
-        let dynamicSelection = Array.from(cards);
-        let pointerIndex = 0;
+                <div class="stone-card" data-category="light" data-name="MICARON PURE WHITE" data-sku="#9010" data-fullimg="Page4-11.PNG">
+                    <div class="card-media">
+                        <img src="Page4-11.PNG" alt="MICARON PURE WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PURE WHITE</h3>
+                        <p class="card-sku">#9010</p>
+                    </div>
+                </div>
 
-        const footerText = "Hello Micaron Team, I would like to schedule a structural visit to your DIP-2 stockyard to view the quartz collection.";
-        footerBookBtn.href = `https://wa.me/${MY_PHONE_NUMBER}?text=${encodeURIComponent(footerText)}`;
+                <div class="stone-card" data-category="light" data-name="MICARON CRYSTAL WHITE" data-sku="#9011" data-fullimg="Page4-12.PNG">
+                    <div class="card-media">
+                        <img src="Page4-12.PNG" alt="MICARON CRYSTAL WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CRYSTAL WHITE</h3>
+                        <p class="card-sku">#9011</p>
+                    </div>
+                </div>
 
-        function executeRealtimeFiltering() {
-            const query = searchField.value.toLowerCase().trim();
-            const currentFilter = document.querySelector('.filter-tab.active').getAttribute('data-filter');
+                <div class="stone-card" data-category="light" data-name="MICARON STELLAR WHITE" data-sku="#9012" data-fullimg="Page4-13.PNG">
+                    <div class="card-media">
+                        <img src="Page4-13.PNG" alt="MICARON STELLAR WHITE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON STELLAR WHITE</h3>
+                        <p class="card-sku">#9012</p>
+                    </div>
+                </div>
 
-            cards.forEach(card => {
-                const title = card.getAttribute('data-name').toLowerCase();
-                const sku = card.getAttribute('data-sku').toLowerCase();
-                const category = card.getAttribute('data-category');
+                <div class="stone-card" data-category="light" data-name="MICARON IVORY BEIGE" data-sku="#9013" data-fullimg="Page4-14.PNG">
+                    <div class="card-media">
+                        <img src="Page4-14.PNG" alt="MICARON IVORY BEIGE" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON IVORY BEIGE</h3>
+                        <p class="card-sku">#9013</p>
+                    </div>
+                </div>
 
-                const passQuery = title.includes(query) || sku.includes(query);
-                const passTab = currentFilter === 'all' || category === currentFilter;
+                <div class="stone-card" data-category="light" data-name="MICARON CREMA MARFIL" data-sku="#9014" data-fullimg="Page5-15.PNG">
+                    <div class="card-media">
+                        <img src="Page5-15.PNG" alt="MICARON CREMA MARFIL" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CREMA MARFIL</h3>
+                        <p class="card-sku">#9014</p>
+                    </div>
+                </div>
 
-                if (passQuery && passTab) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+                <div class="stone-card" data-category="dark" data-name="MICARON CONCRETE GREY" data-sku="#9015" data-fullimg="Page5-16.PNG">
+                    <div class="card-media">
+                        <img src="Page5-16.PNG" alt="MICARON CONCRETE GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON CONCRETE GREY</h3>
+                        <p class="card-sku">#9015</p>
+                    </div>
+                </div>
 
-            dynamicSelection = Array.from(cards).filter(card => card.style.display !== 'none');
-        }
+                <div class="stone-card" data-category="dark" data-name="MICARON STELLAR GREY" data-sku="#9016" data-fullimg="Page5-17.PNG">
+                    <div class="card-media">
+                        <img src="Page5-17.PNG" alt="MICARON STELLAR GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON STELLAR GREY</h3>
+                        <p class="card-sku">#9016</p>
+                    </div>
+                </div>
 
-        searchField.addEventListener('input', executeRealtimeFiltering);
+                <div class="stone-card" data-category="dark" data-name="MICARON PIETRA GREY" data-sku="#9017" data-fullimg="Page5-18.PNG">
+                    <div class="card-media">
+                        <img src="Page5-18.PNG" alt="MICARON PIETRA GREY" loading="lazy">
+                    </div>
+                    <div class="card-meta">
+                        <h3 class="card-title">MICARON PIETRA GREY</h3>
+                        <p class="card-sku">#9017</p>
+                    </div>
+                </div>
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                executeRealtimeFiltering();
-            });
-        });
-
-        function triggerModalDisplay(index) {
-            pointerIndex = index;
-            const card = dynamicSelection[pointerIndex];
-            const hdSource = card.getAttribute('data-fullimg');
-            const targetName = card.getAttribute('data-name');
-            const targetSku = card.getAttribute('data-sku');
-
-            modalImg.src = hdSource;
-
-            const customMessage = `Hello Micaron Team, I am interested in checking the availability of ${targetName} ${targetSku}. Could you please share the current stock status at your Dubai warehouse? Thank you!`;
-            modalWaLink.href = `https://wa.me/${MY_PHONE_NUMBER}?text=${encodeURIComponent(customMessage)}`;
-
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function shutdownModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function stepNextAsset() {
-            if (dynamicSelection.length <= 1) return;
-            pointerIndex = (pointerIndex + 1) % dynamicSelection.length;
-            triggerModalDisplay(pointerIndex);
-        }
-
-        function stepPrevAsset() {
-            if (dynamicSelection.length <= 1) return;
-            pointerIndex = (pointerIndex - 1 + dynamicSelection.length) % dynamicSelection.length;
-            triggerModalDisplay(pointerIndex);
-        }
-
-        grid.addEventListener('click', (e) => {
-            const card = e.target.closest('.stone-card');
-            if (!card) return;
-            
-            const internalIndex = dynamicSelection.indexOf(card);
-            if (internalIndex !== -1) {
-                triggerModalDisplay(internalIndex);
-            }
-        });
-
-        modalClose.addEventListener('click', shutdownModal);
-        modalNext.addEventListener('click', stepNextAsset);
-        modalPrev.addEventListener('click', stepPrevAsset);
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) shutdownModal();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (!modal.classList.contains('active')) return;
-            if (e.key === 'Escape') shutdownModal();
-            if (e.key === 'ArrowRight') stepNextAsset();
-            if (e.key === 'ArrowLeft') stepPrevAsset();
-        });
-    </script>
-</body>
-</html>
+                <div class="stone-card" data-category="dark" data-name="MICARON ABSOLUTE BLACK" data-sku="#9018" data-fullimg="Page6-19.PNG">
+                    <div class="card-media">
+                        <img src="Page6-19.PNG" alt="MICARON ABSOLUTE BLACK" loading="lazy">
+                    </div>
