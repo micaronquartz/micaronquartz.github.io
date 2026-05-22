@@ -10,6 +10,7 @@
         
         /* HEADER */
         header { position: absolute; top: 0; left: 0; width: 100%; z-index: 999; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-img { height: 40px; width: auto; filter: brightness(0) invert(1); }
         .nav-links { display: flex; gap: 25px; }
         .nav-links a { color: #fff; text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: opacity 0.3s; }
         .nav-links a:hover { opacity: 0.7; }
@@ -46,7 +47,7 @@
 
     <header>
         <a href="#">
-            <img src="logo.png" alt="MICARON" style="height: 40px; width: auto; filter: brightness(0) invert(1);">
+            <img src="logo.png" alt="MICARON" class="logo-img">
         </a>
         <nav class="nav-links">
             <a href="#about">About Us</a>
@@ -103,7 +104,6 @@
         <img id="lightboxImg" src="">
     </div>
 
-    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/971585865577" target="_blank" style="
         position: fixed; 
         bottom: 30px; 
