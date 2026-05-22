@@ -31,12 +31,18 @@
         .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; text-transform: uppercase; }
         .hero-content h1 { letter-spacing: 8px; }
         .hero-subtitle { font-size: 18px; letter-spacing: 3px; margin-top: 10px; opacity: 0.8; }
+        .cta-btn { 
+            display: inline-block; margin-top: 30px; padding: 15px 35px; 
+            border: 2px solid #fff; color: #fff; text-decoration: none; 
+            text-transform: uppercase; letter-spacing: 2px; font-size: 12px;
+            transition: 0.3s; font-weight: bold;
+        }
+        .cta-btn:hover { background: #fff; color: #000; }
         
         .catalog-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
         .filter-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
         .filter-tab { background: transparent; border: 1px solid #444; color: #ccc; padding: 10px 25px; cursor: pointer; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; transition: 0.3s; }
         .filter-tab.active, .filter-tab:hover { background: #fff; color: #1a1a1a; border-color: #fff; }
-        
         .pdf-btn { 
             background: #fff; color: #000; padding: 10px 25px; text-decoration: none; 
             text-transform: uppercase; font-size: 11px; letter-spacing: 2px; border: 1px solid #fff; 
@@ -71,6 +77,7 @@
         <div class="hero-content">
             <h1>Micaron Quartz</h1>
             <p class="hero-subtitle">Official Representative in the UAE</p>
+            <a href="#contacts" class="cta-btn">Get a Free Consultation</a>
         </div>
     </section>
 
@@ -87,7 +94,8 @@
 
     <section id="about" class="info-section">
         <h2>About Us</h2>
-        <p>Micaron Quartz stands as a beacon of excellence in the Dubai premium stone market.</p>
+        <p style="margin-bottom: 30px;">Micaron Quartz stands as a beacon of excellence in the Dubai premium stone market.</p>
+        <a href="https://wa.me/971585865577" class="cta-btn" style="margin-top: 0; background: #fff; color: #000; border-color: #fff;">Book a Showroom Visit</a>
     </section>
 
     <section id="contacts" class="info-section" style="background: #111; max-width: 100%;">
