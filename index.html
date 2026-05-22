@@ -9,7 +9,9 @@
         body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; }
         
         /* HEADER */
-        header { position: absolute; top: 0; left: 0; width: 100%; z-index: 999; padding: 25px 40px; }
+        header { position: absolute; top: 0; left: 0; width: 100%; z-index: 999; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; mix-blend-mode: difference; }
         
         /* HERO */
         .main-hero { height: 80vh; display: flex; align-items: center; justify-content: center; position: relative; background: #000; overflow: hidden; }
@@ -40,6 +42,11 @@
         <a href="#">
             <img src="logo.png" alt="MICARON" style="height: 40px; width: auto; mix-blend-mode: difference;">
         </a>
+        <nav class="nav-links">
+            <a href="#about">About Us</a>
+            <a href="#contacts">Contacts</a>
+            <a href="https://wa.me/971500000000" target="_blank">WhatsApp</a>
+        </nav>
     </header>
 
     <section class="main-hero">
@@ -81,7 +88,6 @@
             grid.innerHTML = '';
             items.forEach(item => {
                 if (cat !== 'all' && item.cat !== cat) return;
-                
                 const div = document.createElement('div');
                 div.className = 'stone-card';
                 div.innerHTML = `<div class="card-media"><img src="${item.file}" loading="lazy"></div>`;
