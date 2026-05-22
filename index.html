@@ -6,50 +6,52 @@
     <title>MICARON | Premium Quartz Stone Dubai</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; scroll-behavior: smooth; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #1a1a1a; color: #e0e0e0; line-height: 1.6; scroll-behavior: smooth; }
         
         /* HEADER */
         header { position: absolute; top: 0; left: 0; width: 100%; z-index: 999; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { color: #fff; text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; mix-blend-mode: difference; font-weight: bold; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: opacity 0.3s; }
+        .nav-links a:hover { opacity: 0.7; }
         
         /* HERO */
         .main-hero { height: 80vh; display: flex; align-items: center; justify-content: center; position: relative; background: #000; overflow: hidden; }
-        .hero-bg-img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
-        .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; text-transform: uppercase; letter-spacing: 5px; }
+        .hero-bg-img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+        .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; text-transform: uppercase; letter-spacing: 8px; }
         
         /* CATALOG */
-        .catalog-section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-        .filter-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
-        .filter-tab { background: #fff; border: 1px solid #111; padding: 10px 25px; cursor: pointer; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; }
-        .filter-tab.active { background: #111; color: #fff; }
+        .catalog-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .filter-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
+        .filter-tab { background: transparent; border: 1px solid #444; color: #ccc; padding: 10px 25px; cursor: pointer; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; transition: 0.3s; }
+        .filter-tab.active, .filter-tab:hover { background: #fff; color: #1a1a1a; border-color: #fff; }
         
-        .stone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
-        .stone-card { cursor: pointer; }
-        .card-media { width: 100%; padding-top: 133%; position: relative; background: #f4f4f4; }
+        .stone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .stone-card { cursor: pointer; border: 1px solid #333; transition: 0.3s; background: #222; }
+        .stone-card:hover { border-color: #777; transform: translateY(-5px); }
+        .card-media { width: 100%; padding-top: 133%; position: relative; }
         .card-media img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
         
         /* SECTIONS */
-        .info-section { padding: 80px 20px; text-align: center; max-width: 800px; margin: 0 auto; }
-        .info-section h2 { margin-bottom: 20px; text-transform: uppercase; letter-spacing: 3px; }
+        .info-section { padding: 100px 20px; text-align: center; max-width: 800px; margin: 0 auto; color: #bbb; }
+        .info-section h2 { margin-bottom: 30px; text-transform: uppercase; letter-spacing: 4px; color: #fff; }
         
         /* LIGHTBOX */
-        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.95); z-index: 9999; display: none; align-items: center; justify-content: center; }
+        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; display: none; align-items: center; justify-content: center; }
         .lightbox.active { display: flex; }
-        .lightbox img { max-width: 90%; max-height: 80vh; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .close-btn { position: absolute; top: 30px; right: 30px; font-size: 40px; cursor: pointer; }
+        .lightbox img { max-width: 90%; max-height: 85vh; border: 1px solid #444; }
+        .close-btn { position: absolute; top: 30px; right: 40px; font-size: 50px; cursor: pointer; color: #fff; }
     </style>
 </head>
 <body>
 
     <header>
         <a href="#">
-            <img src="logo.png" alt="MICARON" style="height: 40px; width: auto; mix-blend-mode: difference;">
+            <img src="logo.png" alt="MICARON" style="height: 40px; width: auto; filter: brightness(0) invert(1);">
         </a>
         <nav class="nav-links">
             <a href="#about">About Us</a>
             <a href="#contacts">Contacts</a>
-            <a href="https://wa.me/971585865577" target="_blank">WhatsApp</a>
+            <a href="https://wa.me/971585865577" target="_blank" style="color: #25D366;">WhatsApp</a>
         </nav>
     </header>
 
@@ -70,7 +72,7 @@
 
     <section id="about" class="info-section">
         <h2>About Us</h2>
-        <p style="text-align: justify; font-size: 16px; color: #555;">
+        <p style="text-align: justify; font-size: 16px; line-height: 1.8;">
             <strong>Micaron Quartz</strong> stands as a beacon of excellence in the Dubai premium stone market. 
             We specialize in providing high-end quartz surfaces that harmoniously combine breath-taking aesthetics 
             with unmatched engineering performance. Our collection is meticulously curated for luxury residential 
@@ -82,18 +84,16 @@
         </p>
     </section>
 
-    <section id="contacts" class="info-section" style="background: #f9f9f9; max-width: 100%;">
+    <section id="contacts" class="info-section" style="background: #111; max-width: 100%;">
         <h2>Contacts</h2>
-        
-        <div style="margin-bottom: 30px; width: 100%; height: 300px; max-width: 800px; margin: 0 auto 30px auto;">
+        <div style="margin-bottom: 40px; width: 100%; height: 350px; max-width: 800px; margin: 0 auto 40px auto; border: 1px solid #333;">
             <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3613.3102377755675!2d55.19430737520668!3d24.971766042137996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDU4JzE4LjQiTiA1NcKwMTEnNDcuNiJF!5e0!3m2!1sen!2sae!4v1716399999999" 
             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
-
-        <p><strong>Phone:</strong> <a href="tel:+971585865577">+971 58 586 5577</a></p>
-        <p><strong>Email:</strong> <a href="mailto:info@micaronquartz.com">info@micaronquartz.com</a></p>
-        <p><strong>Address:</strong> 
-            <a href="https://maps.google.com/?q=24.971766,55.196522" target="_blank" style="text-decoration: none; color: inherit;">
+        <p><strong>Phone:</strong> <a href="tel:+971585865577" style="color: #fff; text-decoration: none;">+971 58 586 5577</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@micaronquartz.com" style="color: #fff; text-decoration: none;">info@micaronquartz.com</a></p>
+        <p style="margin-top: 10px;"><strong>Address:</strong> 
+            <a href="https://maps.google.com/?q=24.971766,55.196522" target="_blank" style="text-decoration: none; color: #ccc;">
                 Warehouse No 16, near Zois Fine food, ALP Investment, Dubai Investment Park 2, Warehouse E-12, Dubai, UAE
             </a>
         </p>
