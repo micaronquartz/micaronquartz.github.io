@@ -10,8 +10,9 @@
         
         /* HEADER */
         header { position: absolute; top: 0; left: 0; width: 100%; z-index: 9999; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; }
-        .logo-container { height: 40px; display: block; }
-        .logo-img { height: 100%; width: auto; display: block; } /* Фильтр убран */
+        .logo-container { display: block; }
+        /* Я задал размеры вручную, чтобы логотип точно появился */
+        .logo-img { height: 40px !important; width: auto !important; display: block !important; visibility: visible !important; }
         
         .nav-links { display: flex; gap: 25px; }
         .nav-links a { color: #fff; text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: opacity 0.3s; }
