@@ -6,7 +6,7 @@
     <title>MICARON | Premium Quartz Stone Dubai</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; scroll-behavior: smooth; }
         
         /* HEADER */
         header { position: absolute; top: 0; left: 0; width: 100%; z-index: 999; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; }
@@ -28,6 +28,10 @@
         .stone-card { cursor: pointer; }
         .card-media { width: 100%; padding-top: 133%; position: relative; background: #f4f4f4; }
         .card-media img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        
+        /* SECTIONS */
+        .info-section { padding: 80px 20px; text-align: center; max-width: 800px; margin: 0 auto; }
+        .info-section h2 { margin-bottom: 20px; text-transform: uppercase; letter-spacing: 3px; }
         
         /* LIGHTBOX */
         .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.95); z-index: 9999; display: none; align-items: center; justify-content: center; }
@@ -61,9 +65,20 @@
             <button class="filter-tab" onclick="filterGallery('regular', this)">Regular Veins</button>
             <button class="filter-tab" onclick="filterGallery('dark', this)">Dark/Grey</button>
         </div>
-
         <div class="stone-grid" id="grid"></div>
     </main>
+
+    <section id="about" class="info-section">
+        <h2>About Us</h2>
+        <p>Micaron Quartz brings timeless elegance and unmatched durability to interiors across Dubai. We specialize in premium quartz surfaces that blend sophisticated design with exceptional performance, turning every project into a masterpiece of modern luxury.</p>
+    </section>
+
+    <section id="contacts" class="info-section" style="background: #f9f9f9;">
+        <h2>Contacts</h2>
+        <p><strong>Phone:</strong> <a href="tel:+971585865577">+971 58 586 5577</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@micaronquartz.com">info@micaronquartz.com</a></p>
+        <p><strong>Location:</strong> Dubai, United Arab Emirates</p>
+    </section>
 
     <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
         <span class="close-btn">&times;</span>
@@ -84,7 +99,6 @@
         function filterGallery(cat, btn) {
             document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
             grid.innerHTML = '';
             items.forEach(item => {
                 if (cat !== 'all' && item.cat !== cat) return;
@@ -95,7 +109,6 @@
                 grid.appendChild(div);
             });
         }
-
         filterGallery('all', document.querySelector('.filter-tab'));
     </script>
 </body>
