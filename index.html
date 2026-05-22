@@ -36,6 +36,8 @@
         .filter-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
         .filter-tab { background: transparent; border: 1px solid #444; color: #ccc; padding: 10px 25px; cursor: pointer; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; transition: 0.3s; }
         .filter-tab.active, .filter-tab:hover { background: #fff; color: #1a1a1a; border-color: #fff; }
+        .pdf-btn { background: #fff; color: #000; padding: 10px 25px; text-decoration: none; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; border: 1px solid #fff; transition: 0.3s; font-weight: bold; }
+        .pdf-btn:hover { background: #ccc; }
         
         .stone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
         .stone-card { cursor: pointer; border: 1px solid #333; transition: 0.3s; background: #222; }
@@ -73,6 +75,7 @@
             <button class="filter-tab" onclick="filterGallery('calacatta', this)">Calacatta</button>
             <button class="filter-tab" onclick="filterGallery('regular', this)">Regular Veins</button>
             <button class="filter-tab" onclick="filterGallery('dark', this)">Dark/Grey</button>
+            <a href="Catalog.pdf" target="_blank" class="pdf-btn">Download PDF</a>
         </div>
         <div class="stone-grid" id="grid"></div>
     </main>
