@@ -8,11 +8,17 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #1a1a1a; color: #e0e0e0; line-height: 1.6; scroll-behavior: smooth; }
         
+        /* Анимация появления */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reveal { animation: fadeIn 1s ease-out forwards; }
+        
         /* HEADER */
         header { position: absolute; top: 0; left: 0; width: 100%; z-index: 9999; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; }
         .logo-container { display: block; }
-        /* Я задал размеры вручную, чтобы логотип точно появился */
-        .logo-img { height: 40px !important; width: auto !important; display: block !important; visibility: visible !important; }
+        .logo-img { height: 40px !important; width: auto !important; display: block !important; }
         
         .nav-links { display: flex; gap: 25px; }
         .nav-links a { color: #fff; text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: opacity 0.3s; }
@@ -36,7 +42,7 @@
         .card-media img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
         
         /* SECTIONS */
-        .info-section { padding: 100px 20px; text-align: center; max-width: 800px; margin: 0 auto; color: #bbb; }
+        .info-section { padding: 100px 20px; text-align: center; max-width: 800px; margin: 0 auto; color: #bbb; opacity: 0; }
         .info-section h2 { margin-bottom: 30px; text-transform: uppercase; letter-spacing: 4px; color: #fff; }
         
         /* LIGHTBOX */
@@ -79,11 +85,7 @@
             <strong>Micaron Quartz</strong> stands as a beacon of excellence in the Dubai premium stone market. 
             We specialize in providing high-end quartz surfaces that harmoniously combine breath-taking aesthetics 
             with unmatched engineering performance. Our collection is meticulously curated for luxury residential 
-            and commercial projects, offering a sophisticated palette of designs that cater to the most 
-            demanding architectural visions. Whether you are creating a modern kitchen masterpiece or a 
-            grand commercial space, Micaron Quartz provides the durability, elegance, and sustainable quality 
-            that your project deserves. We are committed to perfection, precision, and the seamless 
-            realization of your design dreams.
+            and commercial projects.
         </p>
     </section>
 
@@ -95,11 +97,6 @@
         </div>
         <p><strong>Phone:</strong> <a href="tel:+971585865577" style="color: #fff; text-decoration: none;">+971 58 586 5577</a></p>
         <p><strong>Email:</strong> <a href="mailto:info@micaronquartz.com" style="color: #fff; text-decoration: none;">info@micaronquartz.com</a></p>
-        <p style="margin-top: 10px;"><strong>Address:</strong> 
-            <a href="https://maps.google.com/?q=24.971766,55.196522" target="_blank" style="text-decoration: none; color: #ccc;">
-                Warehouse No 16, near Zois Fine food, ALP Investment, Dubai Investment Park 2, Warehouse E-12, Dubai, UAE
-            </a>
-        </p>
     </section>
 
     <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
@@ -108,26 +105,20 @@
     </div>
 
     <a href="https://wa.me/971585865577" target="_blank" style="
-        position: fixed; 
-        bottom: 30px; 
-        right: 30px; 
-        background-color: #25D366; 
-        color: #fff; 
-        padding: 15px 20px; 
-        border-radius: 50px; 
-        text-decoration: none; 
-        font-weight: bold; 
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
-        z-index: 10000;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
+        position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: #fff; 
+        padding: 15px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 10000; display: flex; align-items: center; gap: 8px;
     ">
         <span style="font-size: 20px;">💬</span> Chat with us
     </a>
 
     <script>
+        // Анимация при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('reveal'); });
+        });
+        document.querySelectorAll('.info-section').forEach(section => observer.observe(section));
+
         const grid = document.getElementById('grid');
         const lightbox = document.getElementById('lightbox');
         const lbImg = document.getElementById('lightboxImg');
