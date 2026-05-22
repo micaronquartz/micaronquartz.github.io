@@ -5,342 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MICARON | Premium Quartz Stone Dubai</title>
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #ffffff; color: #111111; line-height: 1.6; }
         
-        /* ШАПКА САЙТА */
-        header { position: absolute; top: 0; left: 0; width: 100%; z-index: 999; padding: 25px 40px; background: transparent; }
-        .header-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: flex-start; }
-        .logo-link { text-decoration: none; color: #ffffff; display: flex; flex-direction: column; align-items: center; mix-blend-mode: difference; }
-        .logo-monogram { font-size: 24px; font-weight: 700; letter-spacing: 2px; margin-bottom: 2px; }
-        .logo-text { font-size: 14px; font-weight: 300; text-transform: uppercase; letter-spacing: 5px; }
+        /* HERO */
+        .main-hero { height: 80vh; display: flex; align-items: center; justify-content: center; position: relative; background: #000; overflow: hidden; }
+        .hero-bg-img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+        .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; text-transform: uppercase; letter-spacing: 5px; }
         
-        /* ГЛАВНАЯ СТРАНИЦА (HERO BANNER) */
-        .main-hero { 
-            height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            position: relative; 
-            background-color: #111111;
-            text-align: center;
-            color: #ffffff;
-            padding: 0 20px;
-            overflow: hidden;
-        }
-        .hero-bg-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55));
-            z-index: 2;
-        }
-        .hero-content { 
-            position: relative;
-            z-index: 3;
-            max-width: 800px; 
-            animation: fadeIn 1.2s ease-out; 
-        }
-        .hero-content h1 { font-size: 52px; font-weight: 300; text-transform: uppercase; letter-spacing: 6px; margin-bottom: 20px; line-height: 1.2; }
-        .hero-content p { font-size: 18px; font-weight: 300; letter-spacing: 1.5px; color: #f0f0f0; max-width: 600px; margin: 0 auto 40px auto; }
-        .hero-btn { 
-            display: inline-block; 
-            text-decoration: none; 
-            color: #ffffff; 
-            border: 1px solid #ffffff; 
-            padding: 16px 40px; 
-            font-size: 13px; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            font-weight: 400; 
-            transition: all 0.4s ease; 
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px);
-        }
-        .hero-btn:hover { background: #ffffff; color: #111111; transform: translateY(-2px); }
+        /* CATALOG */
+        .catalog-section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .filter-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+        .filter-tab { background: #fff; border: 1px solid #111; padding: 10px 25px; cursor: pointer; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; }
+        .filter-tab.active { background: #111; color: #fff; }
         
-        /* КАТАЛОГ СЕКЦИЯ */
-        .catalog-section { padding-top: 100px; }
-        .hero-section { padding: 40px 20px 20px 20px; text-align: center; max-width: 1400px; margin: 0 auto; }
-        .hero-section h2 { font-size: 32px; font-weight: 300; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; }
-        .hero-section p { font-size: 16px; color: #666666; max-width: 600px; margin: 0 auto; font-weight: 300; }
-        
-        /* УПРАВЛЕНИЕ КАТАЛОГОМ */
-        .catalog-controls { max-width: 1400px; margin: 40px auto; padding: 0 20px; display: flex; flex-direction: column; align-items: center; gap: 25px; }
-        .search-container { position: relative; width: 100%; max-width: 450px; }
-        .search-input { width: 100%; padding: 14px 24px; font-size: 14px; border: 1px solid #e0e0e0; outline: none; transition: border-color 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-        .search-input:focus { border-color: #111111; }
-        .filter-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-        .filter-tab { background: none; border: 1px solid #e0e0e0; padding: 12px 28px; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: all 0.3s ease; }
-        .filter-tab:hover, .filter-tab.active { background-color: #111111; border-color: #111111; color: #ffffff; }
-        
-        /* СЕТКА ТОВАРОВ */
-        .catalog-container { max-width: 1400px; margin: 0 auto; padding: 0 20px 80px 20px; }
-        .stone-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 35px; }
-        .stone-card { display: flex; flex-direction: column; cursor: pointer; transition: transform 0.3s ease; }
-        .stone-card:hover { transform: translateY(-6px); }
-        .card-media { width: 100%; padding-top: 133.33%; position: relative; background-color: #fcfcfc; border: 1px solid #f0f0f0; overflow: hidden; }
+        .stone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
+        .stone-card { cursor: pointer; }
+        .card-media { width: 100%; padding-top: 133%; position: relative; background: #f4f4f4; }
         .card-media img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-        .card-meta { margin-top: 18px; text-align: center; }
-        .card-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
-        .card-sku { font-size: 11px; color: #888888; letter-spacing: 0.5px; }
         
-        /* ПОДВАЛ САЙТА */
-        footer { background-color: #f9f9f9; border-top: 1px solid #f0f0f0; padding: 60px 20px; }
-        .footer-container { max-width: 1200px; margin: 0 auto; text-align: center; }
-        .footer-title { font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 400; }
-        .address-block { font-size: 14px; color: #333333; max-width: 600px; margin: 0 auto 25px auto; font-weight: 300; }
-        .notice-badge { display: inline-block; color: #c92a2a; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid #f1a9a9; background-color: #fff5f5; padding: 6px 16px; margin-bottom: 30px; }
-        .footer-nav-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
-        .footer-btn { text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; padding: 12px 25px; border: 1px solid #111111; transition: all 0.3s; }
-        .btn-maps { background-color: #111111; color: #ffffff; }
-        .btn-maps:hover { background-color: #333333; }
-        .btn-visit { background-color: transparent; color: #111111; }
-        .btn-visit:hover { background-color: #111111; color: #ffffff; }
-        .copyright { font-size: 11px; color: #999999; letter-spacing: 1px; text-transform: uppercase; }
-        
-        /* МОДАЛЬНОЕ ОКНО */
-        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.99); z-index: 10000; display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
-        .lightbox.active { display: flex; opacity: 1; }
-        .lightbox-window { position: relative; max-width: 85vh; width: 90%; display: flex; flex-direction: column; align-items: center; }
-        .lightbox-frame { width: 100%; max-height: 72vh; box-shadow: 0 25px 50px rgba(0,0,0,0.06); border: 1px solid #eeeeee; background: #ffffff; }
-        .lightbox-frame img { width: 100%; max-height: 72vh; object-fit: contain; display: block; }
-        .lightbox-whatsapp-btn { margin-top: 25px; background-color: #25D366; color: #ffffff; text-decoration: none; padding: 16px 45px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; border-radius: 4px; transition: background-color 0.3s, transform 0.2s; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25); text-align: center; }
-        .lightbox-whatsapp-btn:hover { background-color: #1ebd54; transform: translateY(-2px); }
-        .lightbox-close { position: absolute; top: -55px; right: 0; background: none; border: none; font-size: 38px; font-weight: 200; cursor: pointer; color: #111111; line-height: 1; }
-        .lightbox-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 45px; font-weight: 100; cursor: pointer; color: #111111; padding: 20px; user-select: none; transition: opacity 0.2s; }
-        .lightbox-arrow:hover { opacity: 0.5; }
-        .arrow-prev { left: -85px; }
-        .arrow-next { right: -85px; }
-        
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 1100px) { .stone-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; } }
-        @media (max-width: 768px) { 
-            .stone-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } 
-            .hero-content h1 { font-size: 36px; letter-spacing: 4px; }
-            .hero-content p { font-size: 15px; }
-            header { padding: 20px; } 
-        }
-        @media (max-width: 480px) { .stone-grid { grid-template-columns: repeat(1, 1fr); gap: 25px; } .filter-tabs { width: 100%; } .filter-tab { flex: 1 1 calc(50% - 12px); text-align: center; padding: 10px 5px; } .lightbox-arrow { display: none; } .lightbox-close { top: -45px; right: 5px; } .lightbox-whatsapp-btn { width: 100%; box-sizing: border-box; } }
+        /* LIGHTBOX */
+        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.95); z-index: 9999; display: none; align-items: center; justify-content: center; }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90%; max-height: 80vh; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .close-btn { position: absolute; top: 30px; right: 30px; font-size: 40px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo-link">
-                <span class="logo-monogram">M</span>
-                <span class="logo-text">MICARON</span>
-            </a>
-        </div>
-    </header>
-
     <section class="main-hero">
-        <img src="1.png" class="hero-bg-img" alt="Micaron Quartz Kitchen Concept">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Micaron Quartz</h1>
-            <p>Premium engineered stone surfaces for exclusive architectural designs and luxury interiors in Dubai.</p>
-            <a href="#collection" class="hero-btn">Explore Collection</a>
-        </div>
+        <img src="1.png" class="hero-bg-img">
+        <div class="hero-content"><h1>Micaron Quartz</h1></div>
     </section>
 
-    <main class="catalog-section" id="collection">
-        <section class="hero-section">
-            <h2>The Quartz Collection</h2>
-            <p>Meticulously crafted quartz slabs optimized for high-end residential and commercial developments.</p>
-        </section>
+    <main class="catalog-section">
+        <div class="filter-tabs">
+            <button class="filter-tab active" onclick="filterGallery('all', this)">All Surfaces</button>
+            <button class="filter-tab" onclick="filterGallery('calacatta', this)">Calacatta</button>
+            <button class="filter-tab" onclick="filterGallery('regular', this)">Regular Veins</button>
+            <button class="filter-tab" onclick="filterGallery('dark', this)">Dark/Grey</button>
+        </div>
 
-        <section class="catalog-controls">
-            <div class="search-container">
-                <input type="text" id="stoneSearch" class="search-input" placeholder="Search by SKU or Name (e.g. #9002)...">
-            </div>
-            <div class="filter-tabs">
-                <button class="filter-tab active" data-filter="all">All Surfaces</button>
-                <button class="filter-tab" data-filter="calacatta">Calacatta & Statuario</button>
-                <button class="filter-tab" data-filter="light">Light & Beige</button>
-                <button class="filter-tab" data-filter="dark">Dark & Grey</button>
-            </div>
-        </section>
-
-        <section class="catalog-container">
-            <div class="stone-grid" id="stoneGrid">
-                
-                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA BORGHINI" data-sku="#9002" data-fullimg="2.png">
-                    <div class="card-media"><img src="2.png" alt="MICARON CALACATTA BORGHINI" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON CALACATTA BORGHINI</h3><p class="card-sku">#9002</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON OLYMPUS WHITE" data-sku="#9003" data-fullimg="3.png">
-                    <div class="card-media"><img src="3.png" alt="MICARON OLYMPUS WHITE" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON OLYMPUS WHITE</h3><p class="card-sku">#9003</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON STATUARIO SUPREME" data-sku="#9004" data-fullimg="4.png">
-                    <div class="card-media"><img src="4.png" alt="MICARON STATUARIO SUPREME" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON STATUARIO SUPREME</h3><p class="card-sku">#9004</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA GOLD" data-sku="#9005" data-fullimg="Page11-41.png">
-                    <div class="card-media"><img src="Page11-41.png" alt="MICARON CALACATTA GOLD" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON CALACATTA GOLD</h3><p class="card-sku">#9005</p></div>
-                </div>
-
-                <div class="stone-card" data-category="calacatta" data-name="MICARON CALACATTA EXTRA" data-sku="#9008" data-fullimg="Page12-45.png">
-                    <div class="card-media"><img src="Page12-45.png" alt="MICARON CALACATTA EXTRA" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON CALACATTA EXTRA</h3><p class="card-sku">#9008</p></div>
-                </div>
-
-                <div class="stone-card" data-category="light" data-name="MICARON PURE WHITE" data-sku="#9011" data-fullimg="Page13-47.png">
-                    <div class="card-media"><img src="Page13-47.png" alt="MICARON PURE WHITE" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON PURE WHITE</h3><p class="card-sku">#9011</p></div>
-                </div>
-
-                <div class="stone-card" data-category="light" data-name="MICARON STELLAR WHITE" data-sku="#9013" data-fullimg="Page13-48.png">
-                    <div class="card-media"><img src="Page13-48.png" alt="MICARON STELLAR WHITE" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON STELLAR WHITE</h3><p class="card-sku">#9013</p></div>
-                </div>
-
-                <div class="stone-card" data-category="dark" data-name="MICARON STELLAR GREY" data-sku="#9018" data-fullimg="Page15-56.png">
-                    <div class="card-media"><img src="Page15-56.png" alt="MICARON STELLAR GREY" loading="lazy"></div>
-                    <div class="card-meta"><h3 class="card-title">MICARON STELLAR GREY</h3><p class="card-sku">#9018</p></div>
-                </div>
-
-            </div>
-        </section>
+        <div class="stone-grid" id="grid"></div>
     </main>
 
-    <footer>
-        <div class="footer-container">
-            <h4 class="footer-title">MICARON SHOWROOM DUBAI</h4>
-            <div class="address-block">
-                <p>Premium Quartz Gallery, Al Quoz Industrial Area, Dubai, UAE</p>
-            </div>
-            <div class="notice-badge">Viewing by Appointment Only</div>
-            <div class="footer-nav-buttons">
-                <a href="https://maps.google.com" target="_blank" class="footer-btn btn-maps">Open in Google Maps</a>
-                <a href="https://wa.me/971500000000" target="_blank" class="footer-btn btn-visit">Book a Showroom Visit</a>
-            </div>
-            <div class="copyright">© 2026 MICARON STONE SURFACES. ALL RIGHTS RESERVED.</div>
-        </div>
-    </footer>
-
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose">×</button>
-        <button class="lightbox-arrow arrow-prev" id="arrowPrev">‹</button>
-        <div class="lightbox-window">
-            <div class="lightbox-frame">
-                <img id="lightboxImg" src="" alt="Enlarged Quartz Slab">
-            </div>
-            <a id="whatsappBtn" href="#" target="_blank" class="lightbox-whatsapp-btn">Inquire via WhatsApp</a>
-        </div>
-        <button class="lightbox-arrow arrow-next" id="arrowNext">›</button>
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+        <span class="close-btn">&times;</span>
+        <img id="lightboxImg" src="">
     </div>
 
     <script>
-        const searchInput = document.getElementById('stoneSearch');
-        const filterTabs = document.querySelectorAll('.filter-tab');
-        const stoneCards = document.querySelectorAll('.stone-card');
+        const grid = document.getElementById('grid');
         const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxClose = document.getElementById('lightboxClose');
-        const whatsappBtn = document.getElementById('whatsappBtn');
-        const arrowPrev = document.getElementById('arrowPrev');
-        const arrowNext = document.getElementById('arrowNext');
+        const lbImg = document.getElementById('lightboxImg');
 
-        let activeCards = Array.from(stoneCards);
-        let currentImgIndex = 0;
+        // Логика распределения файлов:
+        const items = [
+            ...Array.from({length: 20}, (_, i) => ({cat: 'calacatta', file: `${i+2}.png`})),
+            ...Array.from({length: 6}, (_, i) => ({cat: 'regular', file: `${i+22}.png`})),
+            ...Array.from({length: 6}, (_, i) => ({cat: 'dark', file: `${i+28}.png`}))
+        ];
 
-        function updateCatalog() {
-            const searchValue = searchInput.value.toLowerCase().trim();
-            const activeFilter = document.querySelector('.filter-tab.active').getAttribute('data-filter');
-
-            activeCards = [];
-
-            stoneCards.forEach(card => {
-                const name = card.getAttribute('data-name').toLowerCase();
-                const sku = card.getAttribute('data-sku').toLowerCase();
-                const category = card.getAttribute('data-category');
-
-                const matchesSearch = name.includes(searchValue) || sku.includes(searchValue);
-                const matchesFilter = activeFilter === 'all' || category === activeFilter;
-
-                if (matchesSearch && matchesFilter) {
-                    card.style.display = 'flex';
-                    activeCards.push(card);
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        searchInput.addEventListener('input', updateCatalog);
-
-        filterTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                filterTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                updateCatalog();
-            });
-        });
-
-        stoneCards.forEach(card => {
-            card.addEventListener('click', () => {
-                currentImgIndex = activeCards.indexOf(card);
-                if (currentImgIndex !== -1) openLightbox(activeCards[currentImgIndex]);
-            });
-        });
-
-        function openLightbox(card) {
-            const imgUrl = card.getAttribute('data-fullimg');
-            const stoneName = card.getAttribute('data-name');
-            const stoneSku = card.getAttribute('data-sku');
-
-            lightboxImg.src = imgUrl;
+        function filterGallery(cat, btn) {
+            document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
             
-            const whatsappNumber = "971500000000"; 
-            const text = encodeURIComponent(`Hello Micaron, I am interested in ${stoneName} (${stoneSku}). Please provide more details.`);
-            whatsappBtn.href = `https://wa.me/${whatsappNumber}?text=${text}`;
-
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            grid.innerHTML = '';
+            items.forEach(item => {
+                if (cat !== 'all' && item.cat !== cat) return;
+                
+                const div = document.createElement('div');
+                div.className = 'stone-card';
+                div.innerHTML = `<div class="card-media"><img src="${item.file}" loading="lazy"></div>`;
+                div.onclick = () => { lbImg.src = item.file; lightbox.classList.add('active'); };
+                grid.appendChild(div);
+            });
         }
 
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-
-        function navigate(direction) {
-            if (activeCards.length <= 1) return;
-            currentImgIndex = (currentImgIndex + direction + activeCards.length) % activeCards.length;
-            openLightbox(activeCards[currentImgIndex]);
-        }
-
-        arrowPrev.addEventListener('click', (e) => { e.stopPropagation(); navigate(-1); });
-        arrowNext.addEventListener('click', (e) => { e.stopPropagation(); navigate(1); });
-
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') navigate(-1);
-            if (e.key === 'ArrowRight') navigate(1);
-        });
+        filterGallery('all', document.querySelector('.filter-tab'));
     </script>
 </body>
 </html>
