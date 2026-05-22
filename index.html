@@ -51,7 +51,6 @@
         <nav class="nav-links">
             <a href="#about">About Us</a>
             <a href="#contacts">Contacts</a>
-            <a href="https://wa.me/971585865577" target="_blank" style="color: #25D366;">WhatsApp</a>
         </nav>
     </header>
 
@@ -103,6 +102,27 @@
         <span class="close-btn">&times;</span>
         <img id="lightboxImg" src="">
     </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/971585865577" target="_blank" style="
+        position: fixed; 
+        bottom: 30px; 
+        right: 30px; 
+        background-color: #25D366; 
+        color: #fff; 
+        padding: 15px 20px; 
+        border-radius: 50px; 
+        text-decoration: none; 
+        font-weight: bold; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+        z-index: 10000;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    ">
+        <span style="font-size: 20px;">💬</span> Chat with us
+    </a>
 
     <script>
         const grid = document.getElementById('grid');
