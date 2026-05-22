@@ -19,7 +19,6 @@
         .nav-links a { color: #fff; text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: opacity 0.3s; }
         .nav-links a:hover { opacity: 0.7; }
         
-        /* Кнопки навигации */
         .back-to-top {
             position: fixed; bottom: 30px; left: 30px; background: #333; color: #fff;
             padding: 12px 18px; border-radius: 50px; text-decoration: none; font-size: 12px;
@@ -29,7 +28,9 @@
         
         .main-hero { height: 80vh; display: flex; align-items: center; justify-content: center; position: relative; background: #000; overflow: hidden; }
         .hero-bg-img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
-        .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; text-transform: uppercase; letter-spacing: 8px; }
+        .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; text-transform: uppercase; }
+        .hero-content h1 { letter-spacing: 8px; }
+        .hero-subtitle { font-size: 18px; letter-spacing: 3px; margin-top: 10px; opacity: 0.8; }
         
         .catalog-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
         .filter-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
@@ -44,11 +45,6 @@
         
         .info-section { padding: 100px 20px; text-align: center; max-width: 800px; margin: 0 auto; color: #bbb; opacity: 0; }
         .info-section h2 { margin-bottom: 30px; text-transform: uppercase; letter-spacing: 4px; color: #fff; }
-        
-        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; display: none; align-items: center; justify-content: center; }
-        .lightbox.active { display: flex; }
-        .lightbox img { max-width: 90%; max-height: 85vh; border: 1px solid #444; }
-        .close-btn { position: absolute; top: 30px; right: 40px; font-size: 50px; cursor: pointer; color: #fff; }
     </style>
 </head>
 <body>
@@ -65,7 +61,10 @@
 
     <section class="main-hero">
         <img src="1.png" class="hero-bg-img">
-        <div class="hero-content"><h1>Micaron Quartz</h1></div>
+        <div class="hero-content">
+            <h1>Micaron Quartz</h1>
+            <p class="hero-subtitle">Official Representative in the UAE</p>
+        </div>
     </section>
 
     <main class="catalog-section">
