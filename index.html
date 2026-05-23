@@ -39,9 +39,16 @@
         .catalog-header h2 { text-transform: uppercase; letter-spacing: 5px; color: #fff; margin-bottom: 15px; font-size: 32px; }
         .catalog-header p { color: #bbb; max-width: 600px; margin: 0 auto; }
         
-        .filter-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 60px; flex-wrap: wrap; }
+        .filter-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 60px; flex-wrap: wrap; align-items: center; }
         .filter-tab { background: transparent; border: 1px solid #444; color: #ccc; padding: 12px 30px; cursor: pointer; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; transition: 0.3s; font-weight: bold; }
         .filter-tab.active, .filter-tab:hover { background: #fff; color: #1a1a1a; border-color: #fff; }
+        
+        .pdf-btn { 
+            background: #fff; color: #000; padding: 12px 30px; text-decoration: none; 
+            text-transform: uppercase; font-size: 11px; letter-spacing: 2px; border: 1px solid #fff; 
+            transition: 0.3s; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;
+        }
+        .pdf-btn:hover { background: #ccc; border-color: #ccc; }
         
         .stone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px; }
         .stone-card { cursor: pointer; border: 1px solid #333; transition: 0.3s; background: #222; overflow: hidden; position: relative; }
@@ -69,6 +76,14 @@
         .cert-img { max-width: 160px; height: auto; opacity: 0.8; transition: 0.3s; filter: grayscale(100%); }
         .cert-item:hover .cert-img { opacity: 1; filter: grayscale(0%); transform: scale(1.05); }
         .cert-name { margin-top: 15px; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: #fff; font-weight: bold; }
+        
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: #fff; 
+            padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 10000; display: flex; align-items: center; gap: 10px;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
@@ -110,6 +125,9 @@
             <button class="filter-tab" onclick="filterGallery('calacatta', this)">Calacatta</button>
             <button class="filter-tab" onclick="filterGallery('regular', this)">Regular Veins</button>
             <button class="filter-tab" onclick="filterGallery('dark', this)">Dark/Grey</button>
+            <a href="Catalog.pdf" target="_blank" class="pdf-btn">
+                <span>⬇</span> Download PDF
+            </a>
         </div>
         <div class="stone-grid" id="grid"></div>
     </main>
@@ -187,6 +205,12 @@
         <p>Warehouse No 16, near Zois Fine food, ALP investment, Dubai Investment Park-2, Dubai, UAE</p>
         <iframe src="https://maps.google.com/?q=24.971766,55.196522&output=embed" width="100%" height="300" style="border:0; margin-top:30px;"></iframe>
     </section>
+
+    <!-- ПЛАВАЮЩАЯ КНОПКА WHATSAPP -->
+    <a href="https://wa.me/971585865577" target="_blank" class="whatsapp-float">
+        <span style="font-size: 22px;">💬</span>
+        <span style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Chat with us</span>
+    </a>
 
     <script>
         const grid = document.getElementById('grid');
