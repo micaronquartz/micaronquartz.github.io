@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MICARON | Premium Quartz Stone Dubai</title>
+    <title>MICARON | Premium Quartz Stone Dubai | Official UAE & GCC Representative</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #1a1a1a; color: #e0e0e0; line-height: 1.6; scroll-behavior: smooth; }
         
         /* Модальное окно для фото */
-        #modal { display: none; position: fixed; z-index: 10000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
-        #modal img { max-width: 90%; max-height: 90%; border: 2px solid #fff; }
+        #modal { display: none; position: fixed; z-index: 20000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; cursor: pointer; }
+        #modal img { max-width: 90%; max-height: 90%; border: 2px solid #fff; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
         
         @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .reveal { animation: fadeIn 1s ease-out forwards; }
         
-        header { position: absolute; top: 0; left: 0; width: 100%; z-index: 9999; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; }
+        header { position: absolute; top: 0; left: 0; width: 100%; z-index: 9999; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent); }
         .logo-container { display: block; cursor: pointer; }
         .logo-img { height: 40px !important; width: auto !important; display: block !important; }
         
@@ -24,44 +24,89 @@
         .nav-links a:hover { opacity: 0.7; }
         
         .back-to-top {
-            position: fixed; bottom: 30px; left: 30px; background: #333; color: #fff;
+            position: fixed; bottom: 30px; left: 30px; background: rgba(51, 51, 51, 0.7); color: #fff;
             padding: 12px 18px; border-radius: 50px; text-decoration: none; font-size: 12px;
             text-transform: uppercase; letter-spacing: 1px; z-index: 9999; transition: 0.3s;
+            backdrop-filter: blur(5px);
         }
-        .back-to-top:hover { background: #555; }
+        .back-to-top:hover { background: rgba(85, 85, 85, 0.9); }
         
-        .main-hero { height: 80vh; display: flex; align-items: center; justify-content: center; position: relative; background: #000; overflow: hidden; }
-        .hero-bg-img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
-        .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; text-transform: uppercase; }
-        .hero-content h1 { letter-spacing: 8px; }
-        .hero-subtitle { font-size: 18px; letter-spacing: 3px; margin-top: 10px; opacity: 0.8; }
+        .main-hero { height: 85vh; display: flex; align-items: center; justify-content: center; position: relative; background: #000; overflow: hidden; }
+        .hero-bg-img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
+        .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; text-transform: uppercase; padding: 0 20px; }
+        .hero-content h1 { letter-spacing: 10px; font-size: 48px; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero-subtitle { font-size: 16px; letter-spacing: 3px; margin-top: 10px; opacity: 0.9; font-weight: 300; }
+        .hero-badges { margin-top: 15px; font-size: 11px; letter-spacing: 1px; opacity: 0.7; }
+        
         .cta-btn { 
-            display: inline-block; margin-top: 30px; padding: 15px 35px; 
+            display: inline-block; margin-top: 40px; padding: 18px 40px; 
             border: 2px solid #fff; color: #fff; text-decoration: none; 
-            text-transform: uppercase; letter-spacing: 2px; font-size: 12px;
-            transition: 0.3s; font-weight: bold;
+            text-transform: uppercase; letter-spacing: 2px; font-size: 13px;
+            transition: 0.3s; font-weight: bold; background: transparent;
         }
-        .cta-btn:hover { background: #fff; color: #000; }
+        .cta-btn:hover { background: #fff; color: #000; transform: scale(1.05); }
         
-        .catalog-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-        .filter-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap; }
-        .filter-tab { background: transparent; border: 1px solid #444; color: #ccc; padding: 10px 25px; cursor: pointer; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; transition: 0.3s; }
+        .catalog-section { padding: 100px 20px; max-width: 1400px; margin: 0 auto; }
+        .catalog-header { text-align: center; margin-bottom: 60px; }
+        .catalog-header h2 { text-transform: uppercase; letter-spacing: 5px; color: #fff; margin-bottom: 15px; font-size: 32px; }
+        .catalog-header p { color: #bbb; max-width: 600px; margin: 0 auto; }
+        
+        .filter-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 60px; flex-wrap: wrap; }
+        .filter-tab { background: transparent; border: 1px solid #444; color: #ccc; padding: 12px 30px; cursor: pointer; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; transition: 0.3s; font-weight: bold; }
         .filter-tab.active, .filter-tab:hover { background: #fff; color: #1a1a1a; border-color: #fff; }
         .pdf-btn { 
-            background: #fff; color: #000; padding: 10px 25px; text-decoration: none; 
+            background: #fff; color: #000; padding: 12px 30px; text-decoration: none; 
             text-transform: uppercase; font-size: 11px; letter-spacing: 2px; border: 1px solid #fff; 
-            transition: 0.3s; font-weight: bold; display: flex; align-items: center; 
+            transition: 0.3s; font-weight: bold; display: flex; align-items: center; gap: 8px;
         }
-        .pdf-btn:hover { background: #ccc; }
+        .pdf-btn:hover { background: #ccc; border-color: #ccc; }
         
-        .stone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
-        .stone-card { cursor: pointer; border: 1px solid #333; transition: 0.3s; background: #222; }
-        .stone-card:hover { border-color: #777; transform: translateY(-5px); }
+        .stone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px; }
+        .stone-card { cursor: pointer; border: 1px solid #333; transition: 0.3s; background: #222; overflow: hidden; position: relative; }
+        .stone-card:hover { border-color: #777; transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .stone-card:hover .card-overlay { opacity: 1; }
         .card-media { width: 100%; padding-top: 133%; position: relative; }
-        .card-media img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .card-media img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .stone-card:hover .card-media img { transform: scale(1.05); }
+        .card-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: #fff; opacity: 0; transition: 0.3s; }
+        .card-title { text-transform: uppercase; letter-spacing: 2px; font-size: 14px; font-weight: bold; }
+        .card-cat { text-transform: uppercase; letter-spacing: 1px; font-size: 10px; color: #ccc; }
         
-        .info-section { padding: 100px 20px; text-align: center; max-width: 800px; margin: 0 auto; color: #bbb; opacity: 0; }
-        .info-section h2 { margin-bottom: 30px; text-transform: uppercase; letter-spacing: 4px; color: #fff; }
+        .info-section { padding: 120px 20px; text-align: center; max-width: 1000px; margin: 0 auto; color: #bbb; opacity: 0; }
+        .info-section h2 { margin-bottom: 40px; text-transform: uppercase; letter-spacing: 5px; color: #fff; font-size: 36px; position: relative; display: inline-block; padding-bottom: 15px; }
+        .info-section h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background: #fff; }
+        .about-text { text-align: left; max-width: 900px; margin: 0 auto; font-size: 16px; color: #ccc; }
+        .about-text p { margin-bottom: 25px; }
+        .about-text strong { color: #fff; }
+        .about-list { list-style: none; margin-bottom: 30px; }
+        .about-list li { margin-bottom: 15px; position: relative; padding-left: 25px; text-align: left; }
+        .about-list li::before { content: '✓'; position: absolute; left: 0; color: #fff; font-weight: bold; }
+        
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; align-items: center; justify-items: center; margin-top: 50px; }
+        .cert-item { text-align: center; }
+        .cert-img { max-width: 160px; height: auto; opacity: 0.8; transition: 0.3s; filter: grayscale(100%); }
+        .cert-item:hover .cert-img { opacity: 1; filter: grayscale(0%); transform: scale(1.05); }
+        .cert-name { margin-top: 15px; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: #fff; font-weight: bold; }
+        
+        .contact-details { margin-bottom: 40px; font-size: 16px; }
+        .contact-details p { margin-bottom: 10px; }
+        .contact-details strong { color: #fff; text-transform: uppercase; letter-spacing: 1px; font-size: 14px; }
+        .map-container { margin-top: 40px; width: 100%; height: 400px; border: 1px solid #333; overflow: hidden; position: relative; }
+        .map-overlay { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: #fff; padding: 5px 10px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; backdrop-filter: blur(3px); }
+
+        footer { padding: 40px 20px; text-align: center; border-top: 1px solid #333; font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; flex-direction: column; gap: 15px; position: relative; background: #000; }
+            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .hero-content h1 { font-size: 32px; letter-spacing: 5px; }
+            .hero-subtitle { font-size: 14px; }
+            .catalog-section, .info-section { padding: 60px 20px; }
+            .stone-grid { gap: 20px; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+            .filter-tabs { gap: 10px; }
+            .filter-tab, .pdf-btn { padding: 10px 20px; font-size: 10px; }
+            .info-section h2 { font-size: 28px; }
+        }
     </style>
 </head>
 <body>
@@ -76,6 +121,7 @@
             <img src="logo.png" alt="MICARON" class="logo-img">
         </a>
         <nav class="nav-links">
+            <a href="#catalog">Catalog</a>
             <a href="#about">About Us</a>
             <a href="#certificates">Certificates</a>
             <a href="#contacts">Contacts</a>
@@ -83,92 +129,185 @@
     </header>
 
     <section class="main-hero">
-        <img src="1.png" class="hero-bg-img">
+        <img src="1.png" class="hero-bg-img" alt="Micaron Quartz Hero">
         <div class="hero-content">
             <h1>Micaron Quartz</h1>
-            <p class="hero-subtitle">Official Representative in the UAE</p>
+            <p class="hero-subtitle">Official Representative in the UAE & GCC</p>
+            <p class="hero-badges">Premium Quality | Full Service | NSF • Greenguard • RoHS 2.0 Certified</p>
             <a href="#contacts" class="cta-btn">Get a Free Consultation</a>
         </div>
     </section>
 
-    <main class="catalog-section">
+    <main id="catalog" class="catalog-section">
+        <div class="catalog-header">
+            <h2>Our Collection</h2>
+            <p>Explore our wide range of premium quartz surfaces, perfect for any design vision.</p>
+        </div>
         <div class="filter-tabs">
-            <button class="filter-tab active" onclick="filterGallery('all', this)">All Surfaces</button>
+            <button class="filter-tab active" onclick="filterGallery('all', this)">All</button>
             <button class="filter-tab" onclick="filterGallery('calacatta', this)">Calacatta</button>
             <button class="filter-tab" onclick="filterGallery('regular', this)">Regular Veins</button>
             <button class="filter-tab" onclick="filterGallery('dark', this)">Dark/Grey</button>
-            <a href="Catalog.pdf" target="_blank" class="pdf-btn">Download Full Colors PDF</a>
+            <a href="Catalog.pdf" target="_blank" class="pdf-btn">
+                <span>⬇</span> Download PDF
+            </a>
         </div>
-        <div class="stone-grid" id="grid"></div>
+        <div class="stone-grid" id="grid">
+            <!-- Stone cards will be inserted here by JavaScript -->
+        </div>
     </main>
 
     <section id="about" class="info-section">
         <h2>About Us</h2>
-        <p style="margin-bottom: 30px;">Micaron Quartz stands as a beacon of excellence in the Dubai premium stone market. We specialize in high-quality quartz surfaces, providing durability and luxury for residential and commercial projects across the UAE.</p>
-        <a href="https://wa.me/971585865577" class="cta-btn" style="margin-top: 0; background: #fff; color: #000; border-color: #fff;">Book a Showroom Visit</a>
-    </section>
-
-    <section id="certificates" class="info-section">
-        <h2>Our Certificates</h2>
-        <p style="margin-bottom: 30px;">We are proud to provide certified quality quartz surfaces that meet international safety and durability standards.</p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; align-items: center; justify-items: center;">
-            <img src="cert1.png" alt="Certificate 1" style="max-width: 150px; opacity: 0.8; transition: 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
-            <img src="cert2.png" alt="Certificate 2" style="max-width: 150px; opacity: 0.8; transition: 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
-            <img src="cert3.png" alt="Certificate 3" style="max-width: 150px; opacity: 0.8; transition: 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+        <div class="about-text">
+            <p>Welcome to <strong>Micaron Quartz</strong> — Your Expert for Premium Quartz Surfaces in the UAE.</p>
+            
+            <p>At Micaron Quartz, we believe that quality is the foundation of every space, whether it is a private residence or a large-scale commercial project. We are the <strong>official authorized representative of a leading world-class factory</strong> producing premium-grade quartz slabs. Our mission is to bring a blend of luxury, exceptional reliability, and cutting-edge technology to interiors across the UAE and the GCC region.</p>
+            
+            <ul class="about-list">
+                <li><strong>Certified Quality & Safety:</strong> All our products are officially certified to international standards, including <strong>NSF</strong>, <strong>Greenguard</strong>, and <strong>RoHS 2.0</strong>, confirming the environmental purity and safety of our materials.</li>
+                <li><strong>Direct Supply:</strong> As an official factory representative, we guarantee premium quality at competitive prices, providing direct supply channels across the UAE and GCC.</li>
+                <li><strong>Full-Cycle Service:</strong> We do more than just supply stone; we provide a comprehensive turnkey solution. Our experts handle the <strong>full cycle of services: professional measurements, high-precision cutting, and expert installation</strong>.</li>
+                <li><strong>Reliability & Durability:</strong> Our surfaces are incredibly <strong>durable</strong>, resistant to daily wear and tear, and designed to maintain their pristine appearance for years to come.</li>
+                <li><strong>The Perfect Choice:</strong> Our extensive collection offers the <strong>perfect</strong> color and texture to bring any design vision to life.</li>
+                <li><strong>Easy Maintenance:</strong> We value your time. Our quartz surfaces are <strong>easy to maintain</strong>, making them the ideal choice for modern living.</li>
+            </ul>
+            
+            <p>Located in the heart of Dubai’s industrial sector (Dubai Investment Park), we take pride in offering comprehensive solutions for designers, architects, and private clients. From professional consultation to final installation, Micaron Quartz is your trusted partner.</p>
+            
+            <p style="text-align: center; margin-top: 40px;">
+                <a href="https://wa.me/971585865577" class="cta-btn" style="background: #fff; color: #000; border-color: #fff; margin-top: 0;">Book a Showroom Visit</a>
+            </p>
         </div>
     </section>
 
-    <section id="contacts" class="info-section" style="background: #111; max-width: 100%;">
+    <section id="certificates" class="info-section" style="background: #151515; max-width: 100%;">
+        <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+            <h2>Our Certificates</h2>
+            <p>We are proud to hold internationally recognized certifications that guarantee the safety, quality, and environmental friendliness of our quartz surfaces.</p>
+            
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <img src="nsf.png" alt="NSF Certified" class="cert-img">
+                    <p class="cert-name">NSF</p>
+                </div>
+                <div class="cert-item">
+                    <img src="greenguard.png" alt="Greenguard Certified" class="cert-img">
+                    <p class="cert-name">Greenguard</p>
+                </div>
+                <div class="cert-item">
+                    <img src="rohs.png" alt="RoHS 2.0 Certified" class="cert-img">
+                    <p class="cert-name">RoHS 2.0</p>
+                </div>
+                <!-- Add other certificates here if needed (e.g., ISO, CE) -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="info-section">
         <h2>Contacts</h2>
-        <p>Phone: +971 58 586 5577</p>
-        <p>Email: info@micaron.com</p>
-        <p>Address: Warehouse No 16, near Zois Fine food, ALP investment, Dubai investment Park-2-Warehouse E-12, Dubai, UAE</p>
-        <div style="margin-top: 30px; width: 100%; height: 300px;">
+        <div class="contact-details">
+            <p><strong>Phone:</strong> +971 58 586 5577</p>
+            <p><strong>Email:</strong> info@micaron.com</p>
+            <p><strong>Address:</strong> Warehouse No 16, near Zois Fine food, ALP investment, Dubai Investment Park-2-Warehouse E-12, Dubai, UAE</p>
+        </div>
+        
+        <div class="map-container">
+            <span class="map-overlay">DIP 2, Dubai</span>
             <iframe src="https://maps.google.com/?q=24.971766,55.196522&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
+        
+        <a href="https://wa.me/971585865577" class="cta-btn" style="margin-top: 50px;">Request a Quote via WhatsApp</a>
     </section>
+
+    <footer>
+        <p>&copy; 2024 MICARON Quartz. All Rights Reserved. Official UAE & GCC Representative.</p>
+    </footer>
 
     <a href="#top" class="back-to-top">↑ Home</a>
 
+    <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/971585865577" target="_blank" style="
         position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: #fff; 
-        padding: 15px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; 
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 10000; display: flex; align-items: center; gap: 8px;
-    ">
-        <span style="font-size: 20px;">💬</span> Chat with us
+        padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 10000; display: flex; align-items: center; gap: 10px;
+        transition: 0.3s;
+    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <span style="font-size: 22px;">💬</span>
+        <span style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Chat with us</span>
     </a>
 
     <script>
+        // Intersection Observer for scroll animations
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('reveal'); });
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                    // Stop observing after the animation is triggered
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
         });
+        
         document.querySelectorAll('.info-section').forEach(section => observer.observe(section));
 
         const grid = document.getElementById('grid');
         const modal = document.getElementById('modal');
         const modalImg = document.getElementById('modalImg');
 
-        const items = [
-            ...Array.from({length: 20}, (_, i) => ({cat: 'calacatta', file: `${i+2}.png`})),
-            ...Array.from({length: 6}, (_, i) => ({cat: 'regular', file: `${i+22}.png`})),
-            ...Array.from({length: 6}, (_, i) => ({cat: 'dark', file: `${i+28}.png`}))
-        ];
+        // Map categories to ranges (2.png - 33.png total)
+        const categories = {
+            'calacatta': { start: 2, end: 21, name: 'Calacatta Quartz' },
+            'regular': { start: 22, end: 27, name: 'Regular Veins Quartz' },
+            'dark': { start: 28, end: 33, name: 'Dark & Grey Quartz' }
+        };
+
+        const allItems = [];
+        for (const [key, range] of Object.entries(categories)) {
+            for (let i = range.start; i <= range.end; i++) {
+                allItems.push({ cat: key, file: `${i}.png`, title: `${range.name} - ${String(i).padStart(2, '0')}` });
+            }
+        }
 
         function filterGallery(cat, btn) {
+            // Update active tab style
             document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            if (btn) btn.classList.add('active');
+            
+            // Clear grid
             grid.innerHTML = '';
-            items.forEach(item => {
-                if (cat !== 'all' && item.cat !== cat) return;
-                const div = document.createElement('div');
-                div.className = 'stone-card';
-                div.innerHTML = `<div class="card-media"><img src="${item.file}" loading="lazy"></div>`;
-                // Добавляем логику открытия
-                div.onclick = () => { modal.style.display = 'flex'; modalImg.src = item.file; };
-                grid.appendChild(div);
+            
+            // Filter and create cards
+            const filteredItems = cat === 'all' ? allItems : allItems.filter(item => item.cat === cat);
+            
+            filteredItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'stone-card';
+                card.innerHTML = `
+                    <div class="card-media">
+                        <img src="${item.file}" alt="${item.title}" loading="lazy">
+                    </div>
+                    <div class="card-overlay">
+                        <p class="card-cat">${categories[item.cat].name}</p>
+                        <p class="card-title">${item.title}</p>
+                    </div>
+                `;
+                
+                // Set up modal open on click
+                card.addEventListener('click', () => {
+                    modal.style.display = 'flex';
+                    modalImg.src = item.file;
+                    modalImg.alt = item.title;
+                });
+                
+                grid.appendChild(card);
             });
         }
-        filterGallery('all', document.querySelector('.filter-tab'));
+        
+        // Initial load
+        filterGallery('all', document.querySelector('.filter-tab.active'));
     </script>
 </body>
 </html>
