@@ -11,9 +11,6 @@
         #modal { display: none; position: fixed; z-index: 20000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; cursor: pointer; }
         #modal img { max-width: 90%; max-height: 90%; border: 2px solid #fff; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
         
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .reveal { animation: fadeIn 1s ease-out forwards; }
-        
         header { position: absolute; top: 0; left: 0; width: 100%; z-index: 9999; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent); }
         .logo-container { display: block; cursor: pointer; }
         .logo-img { height: 40px !important; width: auto !important; display: block !important; }
@@ -52,7 +49,7 @@
         .card-media { width: 100%; padding-top: 133%; position: relative; }
         .card-media img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         
-        .info-section { padding: 120px 20px; text-align: center; max-width: 1000px; margin: 0 auto; color: #bbb; opacity: 0; }
+        .info-section { padding: 120px 20px; text-align: center; max-width: 1000px; margin: 0 auto; color: #bbb; }
         .info-section h2 { margin-bottom: 40px; text-transform: uppercase; letter-spacing: 5px; color: #fff; font-size: 36px; position: relative; display: inline-block; padding-bottom: 15px; }
         .info-section h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background: #fff; }
         .about-text { text-align: left; max-width: 900px; margin: 0 auto; font-size: 16px; color: #ccc; }
@@ -66,7 +63,7 @@
         .service-card { border: 1px solid #333; padding: 30px 20px; text-align: center; background: #222; transition: 0.3s; }
         .service-card:hover { border-color: #fff; transform: translateY(-5px); }
         .service-card h3 { text-transform: uppercase; letter-spacing: 2px; font-size: 18px; color: #fff; margin-bottom: 15px; }
-        .service-card p { font-size: 14px; color: #aaa; }
+        .service-card p { font-size: 14px; color: #aaa; margin-top: 10px; }
 
         .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; align-items: center; justify-items: center; margin-top: 50px; }
         .cert-img { max-width: 160px; height: auto; opacity: 0.8; transition: 0.3s; filter: grayscale(100%); }
@@ -117,7 +114,7 @@
         <div class="stone-grid" id="grid"></div>
     </main>
 
-    <!-- СЕКЦИЯ ABOUT US (ПОЛНАЯ ВЕРСИЯ) -->
+    <!-- СЕКЦИЯ ABOUT US -->
     <section id="about" class="info-section">
         <h2>About Us</h2>
         <div class="about-text">
@@ -142,7 +139,7 @@
     <section id="services" class="info-section">
         <h2>Our Services</h2>
         <div class="about-text">
-            <p>At Micaron Quartz, we provide an end-to-end experience, ensuring your project is handled with precision from the initial idea to the final installation.</p>
+            <p style="text-align: center; margin-bottom: 30px;">At Micaron Quartz, we provide an end-to-end experience, ensuring your project is handled with precision from the initial idea to the final installation.</p>
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Consultation</h3>
@@ -192,12 +189,6 @@
     </section>
 
     <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('reveal'); });
-        }, { threshold: 0.1 });
-        
-        document.querySelectorAll('.info-section').forEach(section => observer.observe(section));
-
         const grid = document.getElementById('grid');
         const categories = {
             'calacatta': { start: 2, end: 21 },
