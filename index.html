@@ -1,263 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MICARON | Premium Quartz Stone Dubai | Official UAE & GCC Representative</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #1a1a1a; color: #e0e0e0; line-height: 1.6; scroll-behavior: smooth; }
-        
-        #modal { display: none; position: fixed; z-index: 20000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; cursor: pointer; }
-        #modal img { max-width: 90%; max-height: 90%; border: 2px solid #fff; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
-        
-        header { position: absolute; top: 0; left: 0; width: 100%; z-index: 9999; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent); }
-        .logo-container { display: block; cursor: pointer; }
-        .logo-img { height: 40px !important; width: auto !important; display: block !important; }
-        
-        .nav-links { display: flex; gap: 25px; }
-        .nav-links a { color: #fff; text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: opacity 0.3s; }
-        .nav-links a:hover { opacity: 0.7; }
-        
-        .main-hero { height: 85vh; display: flex; align-items: center; justify-content: center; position: relative; background: #000; overflow: hidden; }
-        .hero-bg-img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
-        .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; text-transform: uppercase; padding: 0 20px; }
-        .hero-content h1 { letter-spacing: 10px; font-size: 48px; margin-bottom: 10px; }
-        .hero-subtitle { font-size: 16px; letter-spacing: 3px; margin-top: 10px; opacity: 0.9; font-weight: 300; }
-        .hero-badges { margin-top: 15px; font-size: 11px; letter-spacing: 1px; opacity: 0.7; }
-        
-        .cta-btn { 
-            display: inline-block; margin-top: 40px; padding: 18px 40px; 
-            border: 2px solid #fff; color: #fff; text-decoration: none; 
-            text-transform: uppercase; letter-spacing: 2px; font-size: 13px;
-            transition: 0.3s; font-weight: bold; background: transparent;
+        /* Стили для нового премиального блока услуг Micaron */
+        .premium-services-section {
+            padding: 120px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #e0e0e0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #1a1a1a;
         }
-        .cta-btn:hover { background: #fff; color: #000; transform: scale(1.05); }
-        
-        .catalog-section { padding: 100px 20px; max-width: 1400px; margin: 0 auto; }
-        .catalog-header { text-align: center; margin-bottom: 60px; }
-        .catalog-header h2 { text-transform: uppercase; letter-spacing: 5px; color: #fff; margin-bottom: 15px; font-size: 32px; }
-        .catalog-header p { color: #bbb; max-width: 600px; margin: 0 auto; }
-        
-        .filter-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 60px; flex-wrap: wrap; align-items: center; }
-        .filter-tab { background: transparent; border: 1px solid #444; color: #ccc; padding: 12px 30px; cursor: pointer; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; transition: 0.3s; font-weight: bold; }
-        .filter-tab.active, .filter-tab:hover { background: #fff; color: #1a1a1a; border-color: #fff; }
-        
-        .pdf-btn { 
-            background: #fff; color: #000; padding: 12px 30px; text-decoration: none; 
-            text-transform: uppercase; font-size: 11px; letter-spacing: 2px; border: 1px solid #fff; 
-            transition: 0.3s; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;
-        }
-        .pdf-btn:hover { background: #ccc; border-color: #ccc; }
-        
-        .stone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px; }
-        .stone-card { cursor: pointer; border: 1px solid #333; transition: 0.3s; background: #222; overflow: hidden; position: relative; }
-        .stone-card:hover { border-color: #777; transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-        .card-media { width: 100%; padding-top: 133%; position: relative; }
-        .card-media img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        
-        .info-section { padding: 120px 20px; text-align: center; max-width: 1000px; margin: 0 auto; color: #bbb; }
-        .info-section h2 { margin-bottom: 40px; text-transform: uppercase; letter-spacing: 5px; color: #fff; font-size: 36px; position: relative; display: inline-block; padding-bottom: 15px; }
-        .info-section h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background: #fff; }
-        .about-text { text-align: left; max-width: 900px; margin: 0 auto; font-size: 16px; color: #ccc; }
-        .about-text p { margin-bottom: 25px; }
-        .about-text strong { color: #fff; }
-        .about-list { list-style: none; margin-bottom: 30px; }
-        .about-list li { margin-bottom: 15px; position: relative; padding-left: 25px; text-align: left; }
-        .about-list li::before { content: '✓'; position: absolute; left: 0; color: #fff; font-weight: bold; }
-        
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-top: 40px; }
-        .service-card { border: 1px solid #333; padding: 30px 20px; text-align: center; background: #222; transition: 0.3s; }
-        .service-card:hover { border-color: #fff; transform: translateY(-5px); }
-        .service-card h3 { text-transform: uppercase; letter-spacing: 2px; font-size: 18px; color: #fff; margin-bottom: 15px; }
-        .service-card p { font-size: 14px; color: #aaa; margin-top: 10px; }
 
-        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; align-items: center; justify-items: center; margin-top: 50px; }
-        .cert-img { max-width: 160px; height: auto; opacity: 0.8; transition: 0.3s; filter: grayscale(100%); }
-        .cert-item:hover .cert-img { opacity: 1; filter: grayscale(0%); transform: scale(1.05); }
-        .cert-name { margin-top: 15px; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: #fff; font-weight: bold; }
-        
-        /* ПЛАВАЮЩИЕ КНОПКИ */
-        .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: #fff; 
-            padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 10000; display: flex; align-items: center; gap: 10px;
-            transition: 0.3s;
+        .services-main-title {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
         }
-        .whatsapp-float:hover { transform: scale(1.05); }
 
-        .top-float {
-            position: fixed; bottom: 30px; left: 30px; background-color: #fff; color: #000; 
-            width: 50px; height: 50px; border-radius: 50%; text-decoration: none; font-weight: bold; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 10000; display: flex; align-items: center; justify-content: center;
-            font-size: 20px; transition: 0.3s;
+        .services-main-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #fff;
         }
-        .top-float:hover { transform: scale(1.1); background-color: #ccc; }
+
+        .factory-intro-box {
+            background: #222;
+            border-left: 4px solid #fff;
+            padding: 25px;
+            margin-bottom: 60px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #ccc;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .factory-intro-box strong {
+            color: #fff;
+        }
+
+        .audience-block {
+            margin-bottom: 60px;
+            background: #1f1f1f;
+            border: 1px solid #333;
+            padding: 40px;
+            border-radius: 4px;
+        }
+
+        .audience-header {
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #444;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .b2c-warranty-badge {
+            background: #fff;
+            color: #1a1a1a;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 6px 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .services-sub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-item-card {
+            background: #262626;
+            padding: 25px;
+            border: 1px solid #3a3a3a;
+            transition: 0.3s ease;
+        }
+
+        .service-item-card:hover {
+            border-color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .service-item-card h4 {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .service-item-card p {
+            font-size: 14px;
+            color: #b5b5b5;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .audience-block { padding: 25px; }
+            .services-main-title { font-size: 28px; }
+        }
     </style>
 </head>
 <body>
 
-    <div id="modal" onclick="this.style.display='none'">
-        <img id="modalImg" src="">
-    </div>
-
-    <header id="top">
-        <a href="#top" class="logo-container">
-            <img src="logo.png" alt="MICARON" class="logo-img">
-        </a>
-        <nav class="nav-links">
-            <a href="#catalog">Catalog</a>
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#certificates">Certificates</a>
-            <a href="#contacts">Contacts</a>
-        </nav>
-    </header>
-
-    <section class="main-hero">
-        <img src="1.png" class="hero-bg-img" alt="Micaron Quartz Hero">
-        <div class="hero-content">
-            <h1>Micaron Quartz</h1>
-            <p class="hero-subtitle">Official Representative in the UAE & GCC</p>
-            <p class="hero-badges">Premium Quality | Full Service | NSF • Greenguard • RoHS 2.0 Certified</p>
-            <a href="#contacts" class="cta-btn">Get a Free Consultation</a>
+    <section id="services" class="premium-services-section">
+        
+        <h2 class="services-main-title">Наши Услуги / Our Services</h2>
+        
+        <div class="factory-intro-box">
+            Благодаря современным станкам наше производство позволяет обрабатывать практически любой камень: 
+            <strong>мрамор, гранит, кварц, керамику</strong> и любой другой искусственный камень.
         </div>
-    </section>
 
-    <main id="catalog" class="catalog-section">
-        <div class="catalog-header">
-            <h2>Our Collection</h2>
-            <p>Explore our wide range of premium quartz surfaces, perfect for any design vision.</p>
-        </div>
-        <div class="filter-tabs">
-            <button class="filter-tab active" onclick="filterGallery('all', this)">All</button>
-            <button class="filter-tab" onclick="filterGallery('calacatta', this)">Calacatta</button>
-            <button class="filter-tab" onclick="filterGallery('regular', this)">Regular Veins</button>
-            <button class="filter-tab" onclick="filterGallery('dark', this)">Dark/Grey</button>
-            <a href="Catalog.pdf" target="_blank" class="pdf-btn">
-                <span>⬇</span> Download PDF
-            </a>
-        </div>
-        <div class="stone-grid" id="grid"></div>
-    </main>
-
-    <!-- СЕКЦИЯ ABOUT US -->
-    <section id="about" class="info-section">
-        <h2>About Us</h2>
-        <div class="about-text">
-            <p>Welcome to <strong>Micaron Quartz</strong> — Your Expert for Premium Quartz Surfaces in the UAE.</p>
-            
-            <p>At Micaron Quartz, we believe that quality is the foundation of every space, whether it is a private residence or a large-scale commercial project. We are the <strong>official authorized representative of a leading world-class factory</strong> producing premium-grade quartz slabs. Our mission is to bring a blend of luxury, exceptional reliability, and cutting-edge technology to interiors across the UAE and the GCC region.</p>
-            
-            <ul class="about-list">
-                <li><strong>Certified Quality & Safety:</strong> All our products are officially certified to international standards, including <strong>NSF</strong>, <strong>Greenguard</strong>, and <strong>RoHS 2.0</strong>, confirming the environmental purity and safety of our materials.</li>
-                <li><strong>Direct Supply:</strong> As an official factory representative, we guarantee premium quality at competitive prices, providing direct supply channels across the UAE and GCC.</li>
-                <li><strong>Full-Cycle Service:</strong> We do more than just supply stone; we provide a comprehensive turnkey solution. Our experts handle the <strong>full cycle of services: professional measurements, high-precision cutting, and expert installation</strong>.</li>
-                <li><strong>Reliability & Durability:</strong> Our surfaces are incredibly <strong>durable</strong>, resistant to daily wear and tear, and designed to maintain their pristine appearance for years to come.</li>
-                <li><strong>The Perfect Choice:</strong> Our extensive collection offers the <strong>perfect</strong> color and texture to bring any design vision to life.</li>
-                <li><strong>Easy Maintenance:</strong> We value your time. Our quartz surfaces are <strong>easy to maintain</strong>, making them the ideal choice for modern living.</li>
-            </ul>
-            
-            <p>Located in the heart of Dubai’s industrial sector (Dubai Investment Park), we take pride in offering comprehensive solutions for designers, architects, and private clients. From professional consultation to final installation, Micaron Quartz is your trusted partner.</p>
-        </div>
-    </section>
-
-    <!-- СЕКЦИЯ OUR SERVICES -->
-    <section id="services" class="info-section">
-        <h2>Our Services</h2>
-        <div class="about-text">
-            <p style="text-align: center; margin-bottom: 30px;">At Micaron Quartz, we provide an end-to-end experience, ensuring your project is handled with precision from the initial idea to the final installation.</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Consultation</h3>
-                    <p>Expert advice on choosing the perfect stone for your unique interior needs.</p>
+        <div class="audience-block">
+            <div class="audience-header">
+                <span>Секция 1: Для застройщиков и генподрядчиков (B2B / For Developers & Contractors)</span>
+            </div>
+            <div class="services-sub-grid">
+                <div class="service-item-card">
+                    <h4>Промышленное производство любого масштаба</h4>
+                    <p>Высокопроизводительные линии ЧПУ и автоматизированные раскроечные комплексы позволяют нам обрабатывать огромные объемы кварцевых плит для жилых комплексов, отелей и коммерческих объектов без задержек по срокам и потери качества.</p>
                 </div>
-                <div class="service-card">
-                    <h3>Precision Measurement</h3>
-                    <p>Professional site surveys to ensure perfect fit and dimensions for your space.</p>
+                <div class="service-item-card">
+                    <h4>Сертификация и проектная поддержка</h4>
+                    <p>Полный пакет документации для соответствия экологическим требованиям зеленого строительства. Наша продукция имеет международные сертификаты NSF, Greenguard и RoHS 2.0, что гарантирует быстрое и беспроблемное одобрение проекта местными технадзорами и консультантами в ОАЭ.</p>
                 </div>
-                <div class="service-card">
-                    <h3>Custom Fabrication</h3>
-                    <p>High-precision cutting and finishing tailored to your specific project requirements.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Expert Installation</h3>
-                    <p>Clean and timely installation by our dedicated team of professionals.</p>
+                <div class="service-item-card">
+                    <h4>Своевременная сдача под ключ</h4>
+                    <p>Выделенный проектный менеджмент — от жесткого лазерного замера на объекте до финального монтажа конструкций. Мы четко встраиваемся в ваш общий график строительства, полностью исключая простои смежников.</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- СЕКЦИЯ СЕРТИФИКАТОВ -->
-    <section id="certificates" class="info-section" style="background: #151515; max-width: 100%;">
-        <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
-            <h2>Our Certificates</h2>
-            <div class="cert-grid">
-                <div class="cert-item">
-                    <img src="nsf.png" alt="NSF Certified" class="cert-img">
-                    <p class="cert-name">NSF</p>
+        <div class="audience-block">
+            <div class="audience-header">
+                <span>Секция 2: Для архитекторов и дизайнеров интерьера (B2B / For Architects & Designers)</span>
+            </div>
+            <div class="services-sub-grid">
+                <div class="service-item-card">
+                    <h4>Премиальная коллекция и подбор текстур</h4>
+                    <p>Доступ к широкой линейке элитного кварцевого камня, включая сложные рисунки под мрамор (Calacatta). Мы предлагаем идеальную эстетику, вариативность толщины и финишной обработки для точного воплощения вашей дизайнерской идеи.</p>
                 </div>
-                <div class="cert-item">
-                    <img src="greenguard.png" alt="Greenguard Certified" class="cert-img">
-                    <p class="cert-name">Greenguard</p>
+                <div class="service-item-card">
+                    <h4>Безупречная стыковка рисунка (Bookmatching)</h4>
+                    <p>Передовое цифровое картирование плит позволяет нам идеально совмещать прожилки камня на стыках столешниц, «фартуков», барных стоек и стеновых панелей, сохраняя художественную целостность вашего интерьера.</p>
                 </div>
-                <div class="cert-item">
-                    <img src="rohs.png" alt="RoHS 2.0 Certified" class="cert-img">
-                    <p class="cert-name">RoHS 2.0</p>
+                <div class="service-item-card">
+                    <h4>Сложные профили кромок и детализация</h4>
+                    <p>Высокоточное изготовление дизайнерских кромок любой сложности (митра со скрытым швом под 45 градусов, фигурные фаски), выполненное на итальянском оборудовании для реализации самых амбициозных архитектурных узлов.</p>
                 </div>
             </div>
         </div>
+
+        <div class="audience-block">
+            <div class="audience-header">
+                <span>Секция 3: Для частных клиентов и владельцев жилья (B2C / For Homeowners) под ключ</span>
+                <div class="b2c-warranty-badge">Гарантия до 10 лет</div>
+            </div>
+            <div style="font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 25px; letter-spacing: 0.5px;">
+                ✨ Полный цикл от замера до установки с гарантией на камень до 10 лет и годовой гарантией на работу.
+            </div>
+            <div class="services-sub-grid">
+                <div class="service-item-card">
+                    <h4>Премиальный сервис «без забот»</h4>
+                    <p>Полное ведение вашего заказа от А до Я для виллы или квартиры. Мы берем всё на себя: от профессиональной консультации с образцами и лазерного замера до бережной доставки и чистого монтажа. С вас — только согласование.</p>
+                </div>
+                <div class="service-item-card">
+                    <h4>Гигиеничность и безопасность для семьи</h4>
+                    <p>Плотная непористая структура камня, устойчивая к бактериям и сертифицированная NSF для прямого контакта с пищевыми продуктами. Идеально для кухонь и ванных комнат — материал не впитывает запахи, не требует пропиток и абсолютно безопасен для детей.</p>
+                </div>
+                <div class="service-item-card">
+                    <h4>Долговечность на десятилетия и легкий уход</h4>
+                    <p>Создан для реальной жизни. Наш премиальный кварц сверхустойчив к царапинам, пятнам от кофе или вина и высоким температурам. Достаточно просто протереть поверхность влажной салфеткой, чтобы вернуть ей первозданный роскошный вид.</p>
+                </div>
+            </div>
+        </div>
+
     </section>
-
-    <section id="contacts" class="info-section">
-        <h2>Contacts</h2>
-        <p>Warehouse No 16, near Zois Fine food, ALP investment, Dubai Investment Park-2, Dubai, UAE</p>
-        <iframe src="https://maps.google.com/?q=24.971766,55.196522&output=embed" width="100%" height="300" style="border:0; margin-top:30px;"></iframe>
-    </section>
-
-    <!-- СТРЕЛОЧКА НА ГЛАВНУЮ -->
-    <a href="#top" class="top-float">▲</a>
-
-    <!-- ПЛАВАЮЩАЯ КНОПКА WHATSAPP -->
-    <a href="https://wa.me/971585865577" target="_blank" class="whatsapp-float">
-        <span style="font-size: 22px;">💬</span>
-        <span style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Chat with us</span>
-    </a>
-
-    <script>
-        const grid = document.getElementById('grid');
-        const categories = {
-            'calacatta': { start: 2, end: 21 },
-            'regular': { start: 22, end: 27 },
-            'dark': { start: 28, end: 33 }
-        };
-
-        const allItems = [];
-        for (const [key, range] of Object.entries(categories)) {
-            for (let i = range.start; i <= range.end; i++) {
-                allItems.push({ cat: key, file: `${i}.png` });
-            }
-        }
-
-        function filterGallery(cat, btn) {
-            document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
-            if (btn) btn.classList.add('active');
-            grid.innerHTML = '';
-            
-            const filteredItems = cat === 'all' ? allItems : allItems.filter(item => item.cat === cat);
-            
-            filteredItems.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'stone-card';
-                card.innerHTML = `<div class="card-media"><img src="${item.file}" loading="lazy"></div>`;
-                card.onclick = () => {
-                    document.getElementById('modal').style.display = 'flex';
-                    document.getElementById('modalImg').src = item.file;
-                };
-                grid.appendChild(card);
-            });
-        }
-        filterGallery('all', document.querySelector('.filter-tab.active'));
-    </script>
-</body>
+    </body>
 </html>
