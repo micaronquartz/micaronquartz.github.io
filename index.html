@@ -66,11 +66,6 @@
         .about-list li { margin-bottom: 15px; position: relative; padding-left: 25px; text-align: left; }
         .about-list li::before { content: '✓'; position: absolute; left: 0; color: #fff; font-weight: bold; }
         
-        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; align-items: center; justify-items: center; margin-top: 50px; }
-        .cert-img { max-width: 160px; height: auto; opacity: 0.8; transition: 0.3s; filter: grayscale(100%); }
-        .cert-item:hover .cert-img { opacity: 1; filter: grayscale(0%); transform: scale(1.05); }
-        .cert-name { margin-top: 15px; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: #fff; font-weight: bold; }
-
         .premium-services-section { padding: 120px 20px; max-width: 1200px; margin: 0 auto; color: #e0e0e0; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #1a1a1a; }
         .factory-intro-box { background: #222; border-left: 4px solid #fff; padding: 25px; margin-bottom: 60px; text-align: center; font-size: 18px; line-height: 1.6; color: #ccc; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
         .factory-intro-box strong { color: #fff; }
@@ -164,7 +159,6 @@
                 <li><strong>The Perfect Choice:</strong> Our extensive collection offers the <strong>perfect</strong> color and texture to bring any design vision to life.</li>
                 <li><strong>Easy Maintenance:</strong> We value your time. Our quartz surfaces are easy to maintain, making them the ideal choice for modern living.</li>
             </ul>
-            <p>Located in the heart of Dubai’s industrial sector (Dubai Investment Park), we take pride in offering comprehensive solutions for designers, architects, and private clients. From professional consultation to final installation, Micaron Quartz is your trusted partner.</p>
         </div>
     </section>
 
@@ -241,22 +235,9 @@
     </section>
 
     <section id="certificates" class="info-section" style="background: #151515; max-width: 100%;">
-        <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px;">
-            <h2>Our Certificates</h2>
-            <div class="cert-grid">
-                <a href="certs/01_nsf.pdf" target="_blank" class="cert-item" style="text-decoration: none;">
-                    <img src="certs/01_nsf.png" alt="NSF Certified" class="cert-img">
-                    <p class="cert-name">01. NSF</p>
-                </a>
-                <a href="certs/02_greenguard.pdf" target="_blank" class="cert-item" style="text-decoration: none;">
-                    <img src="certs/02_greenguard.png" alt="Greenguard Certified" class="cert-img">
-                    <p class="cert-name">02. Greenguard</p>
-                </a>
-                <a href="certs/03_sgs.pdf" target="_blank" class="cert-item" style="text-decoration: none;">
-                    <img src="certs/03_sgs.png" alt="SGS Certified" class="cert-img">
-                    <p class="cert-name">03. SGS</p>
-                </a>
-            </div>
+        <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+            <h2 style="margin-bottom: 30px;">Our Certificates</h2>
+            <img src="certs/certifications_strip.png" alt="NSF Greenguard SGS Certifications" style="width: 100%; max-width: 600px; height: auto;">
         </div>
     </section>
 
