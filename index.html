@@ -3,74 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MICARON | Premium Quartz Stone Dubai | Official UAE & GCC Representative</title>
+    <title>MICARON | Premium Quartz Stone Dubai</title>
     <style>
-        /* Базовые стили и плавный скролл для всех браузеров */
-        html { scroll-behavior: smooth; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #1a1a1a; color: #e0e0e0; line-height: 1.6; }
-        
-        /* Модальное окно */
-        #modal { display: none; position: fixed; z-index: 20000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; cursor: pointer; }
-        #modal img { max-width: 90%; max-height: 90%; border: 2px solid #fff; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
-        
-        /* Исправленная анимация появления */
-        @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(30px); } 
-            to { opacity: 1; transform: translateY(0); } 
-        }
-        /* animation-fill-mode: forwards удерживает элемент видимым после анимации */
-        .reveal { animation: fadeIn 1s ease-out forwards; }
-        
-        /* Шапка сайта */
-        header { position: absolute; top: 0; left: 0; width: 100%; z-index: 9999; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent); }
-        .logo-container { display: block; cursor: pointer; }
-        .logo-img { height: 40px !important; width: auto !important; display: block !important; }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { color: #fff; text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: color 0.3s ease; }
-        .nav-links a:hover { color: #bbb; }
-        
-        /* Главный экран */
-        .main-hero { height: 85vh; display: flex; align-items: center; justify-content: center; position: relative; background: #000; overflow: hidden; }
-        .hero-bg-img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
-        .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; text-transform: uppercase; padding: 0 20px; }
-        .hero-content h1 { letter-spacing: 10px; font-size: 48px; margin-bottom: 10px; }
-        .cta-btn { display: inline-block; margin-top: 40px; padding: 18px 40px; border: 2px solid #fff; color: #fff; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 13px; font-weight: bold; transition: 0.3s ease; }
-        .cta-btn:hover { background: #fff; color: #000; }
-        
-        /* Секции контента */
-        .info-section { padding: 100px 20px; max-width: 1000px; margin: 0 auto; color: #bbb; opacity: 0; }
-        .info-section h2 { margin-bottom: 40px; text-transform: uppercase; letter-spacing: 5px; color: #fff; font-size: 32px; }
-        .about-text { text-align: left; font-size: 16px; color: #ccc; }
-        .about-list { list-style: none; margin: 20px 0; }
-        .about-list li { margin-bottom: 10px; padding-left: 25px; position: relative; }
-        .about-list li::before { content: '✓'; position: absolute; left: 0; color: #fff; }
-        
-        /* Сетка услуг с анимацией наведения */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #1a1a1a; color: #e0e0e0; line-height: 1.6; scroll-behavior: smooth; }
+        header { padding: 25px 40px; display: flex; justify-content: space-between; background: #000; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 11px; text-transform: uppercase; margin-left: 20px; }
+        .info-section { padding: 80px 20px; max-width: 1000px; margin: 0 auto; color: #bbb; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
-        .service-card { border: 1px solid #333; padding: 30px 20px; text-align: center; background: #222; transition: all 0.3s ease; }
-        .service-card:hover { border-color: #fff; transform: translateY(-5px); background: #2a2a2a; }
-        
-        /* Сертификаты */
-        .cert-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; }
-        .cert-item { text-align: center; }
-        .cert-img { max-width: 100px; filter: grayscale(100%); transition: filter 0.3s ease; }
-        .cert-item:hover .cert-img { filter: grayscale(0%); } /* Сертификаты становятся цветными при наведении */
-        
-        /* Карта */
-        .map-container { position: relative; margin-top: 30px; }
-        .map-container iframe { border: 0; pointer-events: none; } /* Отключаем случайный скролл карты */
-        .map-container.clicked iframe { pointer-events: auto; } /* Включаем карту только при клике */
+        .service-card { border: 1px solid #333; padding: 30px 20px; text-align: center; background: #222; }
     </style>
 </head>
 <body>
-
-    <div id="modal" onclick="this.style.display='none'"><img id="modalImg" src="" alt="Enlarged view"></div>
-
     <header>
-        <a href="#top" class="logo-container"><img src="logo.png" alt="MICARON Quartz Logo" class="logo-img"></a>
         <nav class="nav-links">
-            <a href="#catalog">Catalog</a>
             <a href="#about">About Us</a>
             <a href="#services">Services</a>
             <a href="#certificates">Certificates</a>
@@ -78,25 +24,9 @@
         </nav>
     </header>
 
-    <section class="main-hero" id="top">
-        <img src="1.png" class="hero-bg-img" alt="MICARON Quartz Premium Interior">
-        <div class="hero-content">
-            <h1>Micaron Quartz</h1>
-            <p>Official Representative in the UAE & GCC</p>
-            <a href="#contacts" class="cta-btn">Book a Showroom Visit</a>
-        </div>
-    </section>
-
     <section id="about" class="info-section">
         <h2>About Us</h2>
-        <div class="about-text">
-            <p>Welcome to <strong>Micaron Quartz</strong>. We are the <strong>official authorized representative of a leading world-class factory</strong> producing premium-grade quartz slabs.</p>
-            <ul class="about-list">
-                <li><strong>Certified Quality:</strong> NSF, Greenguard, and RoHS 2.0 certified.</li>
-                <li><strong>Direct Supply:</strong> Competitive pricing across UAE & GCC.</li>
-                <li><strong>Premium Standards:</strong> Durable, stain-resistant, and eco-friendly.</li>
-            </ul>
-        </div>
+        <p>Official representative of a world-class premium quartz factory. Certified by NSF, Greenguard, and RoHS 2.0.</p>
     </section>
 
     <section id="services" class="info-section">
@@ -108,43 +38,5 @@
             <div class="service-card"><h3>Installation</h3></div>
         </div>
     </section>
-
-    <section id="certificates" class="info-section">
-        <h2>Certificates</h2>
-        <div class="cert-grid">
-            <div class="cert-item"><img src="nsf.png" class="cert-img" alt="NSF Certificate"><p>NSF</p></div>
-            <div class="cert-item"><img src="greenguard.png" class="cert-img" alt="Greenguard Certificate"><p>Greenguard</p></div>
-            <div class="cert-item"><img src="rohs.png" class="cert-img" alt="RoHS 2.0 Certificate"><p>RoHS 2.0</p></div>
-        </div>
-    </section>
-
-    <section id="contacts" class="info-section">
-        <h2>Contacts</h2>
-        <p>Dubai Investment Park-2, Warehouse No 16, Dubai, UAE</p>
-        <div class="map-container" id="mapId" onclick="this.classList.add('clicked')">
-            <iframe src="https://maps.google.com/?q=24.971766,55.196522&output=embed" width="100%" height="300"></iframe>
-        </div>
-    </section>
-
-    <script>
-        // Анимация появления секций
-        const observer = new IntersectionObserver((entries) => { 
-            entries.forEach(entry => { 
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('reveal'); 
-                }
-            }); 
-        }, { threshold: 0.1 }); // Секция начнет появляться, как только 10% её площади покажется на экране
-
-        document.querySelectorAll('.info-section').forEach(s => observer.observe(s));
-
-        // Возврат карты в неактивное состояние, если пользователь увел мышку (для ПК)
-        const mapContainer = document.getElementById('mapId');
-        if(mapContainer) {
-            mapContainer.addEventListener('mouseleave', () => {
-                mapContainer.classList.remove('clicked');
-            });
-        }
-    </script>
 </body>
 </html>
