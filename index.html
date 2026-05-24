@@ -3,72 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MICARON | Premium Quartz Stone Dubai | Official UAE & GCC Representative</title>
+    <title>MICARON | Premium Quartz Stone Dubai</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #1a1a1a; color: #e0e0e0; line-height: 1.6; scroll-behavior: smooth; }
         
-        /* Header Fix */
-        header { 
-            position: absolute; top: 0; left: 0; width: 100%; z-index: 9999; 
-            padding: 20px 30px; display: flex; justify-content: space-between; align-items: center; 
-            background: rgba(0,0,0,0.5);
-        }
-        .logo-container { display: block; cursor: pointer; }
-        .logo-img { height: 35px !important; width: auto !important; }
+        /* Исправленная шапка для мобильных */
+        header { position: absolute; top: 0; left: 0; width: 100%; z-index: 9999; padding: 20px 20px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.6); }
+        .logo-container { cursor: pointer; }
+        .logo-img { height: 35px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 15px; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 11px; text-transform: uppercase; font-weight: bold; }
         
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { color: #fff; text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; transition: opacity 0.3s; }
-        
-        /* Mobile adjustment for navigation */
-        @media (max-width: 768px) {
-            header { padding: 15px 15px; flex-direction: column; gap: 15px; }
-            .nav-links { gap: 12px; flex-wrap: wrap; justify-content: center; }
+        @media (max-width: 600px) {
+            header { padding: 15px 10px; }
+            .nav-links { gap: 8px; }
             .nav-links a { font-size: 9px; }
         }
 
-        /* Rest of the styles remain same as before */
         #modal { display: none; position: fixed; z-index: 20000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; cursor: pointer; }
-        #modal img { max-width: 90%; max-height: 90%; border: 2px solid #fff; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+        #modal img { max-width: 90%; max-height: 90%; border: 2px solid #fff; }
         
-        .main-hero { height: 85vh; display: flex; align-items: center; justify-content: center; position: relative; background: #000; overflow: hidden; }
+        .main-hero { height: 80vh; display: flex; align-items: center; justify-content: center; position: relative; background: #000; overflow: hidden; }
         .hero-bg-img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
-        .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; text-transform: uppercase; padding: 0 20px; }
-        .hero-content h1 { letter-spacing: 6px; font-size: 36px; margin-bottom: 10px; }
-        .hero-subtitle { font-size: 14px; letter-spacing: 2px; margin-top: 10px; opacity: 0.9; font-weight: 300; }
-        .hero-badges { margin-top: 15px; font-size: 10px; letter-spacing: 1px; opacity: 0.7; }
+        .hero-content { position: relative; z-index: 2; text-align: center; color: #fff; padding: 0 20px; }
+        .hero-content h1 { letter-spacing: 5px; font-size: 32px; margin-bottom: 10px; }
         
-        .cta-btn { display: inline-block; margin-top: 30px; padding: 15px 30px; border: 2px solid #fff; color: #fff; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; transition: 0.3s; font-weight: bold; }
-        .cta-btn:hover { background: #fff; color: #000; }
-        
-        .catalog-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-        .catalog-header { text-align: center; margin-bottom: 40px; }
-        .catalog-header h2 { text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; font-size: 28px; }
-        
-        .filter-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
-        .filter-tab { background: transparent; border: 1px solid #444; color: #ccc; padding: 8px 20px; cursor: pointer; text-transform: uppercase; font-size: 10px; letter-spacing: 1px; }
+        .catalog-section { padding: 50px 20px; max-width: 1200px; margin: 0 auto; }
+        .filter-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+        .filter-tab { background: transparent; border: 1px solid #444; color: #ccc; padding: 8px 15px; cursor: pointer; text-transform: uppercase; font-size: 10px; }
         .filter-tab.active { background: #fff; color: #000; }
         
-        .stone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .stone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
         .stone-card { cursor: pointer; border: 1px solid #333; background: #222; }
         .card-media { width: 100%; padding-top: 133%; position: relative; }
         .card-media img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
         
-        .info-section { padding: 80px 20px; max-width: 900px; margin: 0 auto; }
-        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: #fff; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-size: 12px; font-weight: bold; z-index: 10000; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .top-float { position: fixed; bottom: 20px; left: 20px; background-color: #fff; color: #000; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-weight: bold; z-index: 10000; }
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: #fff; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-size: 12px; font-weight: bold; z-index: 9999; }
     </style>
 </head>
 <body>
 
-    <div id="modal" onclick="this.style.display='none'">
-        <img id="modalImg" src="">
-    </div>
+    <div id="modal" onclick="this.style.display='none'"><img id="modalImg" src=""></div>
 
     <header id="top">
-        <a href="#top" class="logo-container">
-            <img src="logo.png" alt="MICARON" class="logo-img">
-        </a>
+        <a href="#top" class="logo-container"><img src="logo.png" alt="MICARON" class="logo-img"></a>
         <nav class="nav-links">
             <a href="#catalog">Catalog</a>
             <a href="#about">About</a>
@@ -81,15 +60,12 @@
         <img src="1.png" class="hero-bg-img" alt="Micaron Quartz">
         <div class="hero-content">
             <h1>Micaron Quartz</h1>
-            <p class="hero-subtitle">Official Representative in the UAE & GCC</p>
-            <p class="hero-badges">Premium Quality | Full Service | NSF • Greenguard • SGS Certified</p>
-            <a href="#contacts" class="cta-btn">Get a Free Consultation</a>
+            <p>Official Representative in the UAE & GCC</p>
         </div>
     </section>
 
     <main id="catalog" class="catalog-section">
-        <div class="catalog-header"><h2>Our Collection</h2></div>
-        <div class="filter-tabs" id="filter-tabs">
+        <div class="filter-tabs">
             <button class="filter-tab active" onclick="filterGallery('all', this)">All</button>
             <button class="filter-tab" onclick="filterGallery('calacatta', this)">Calacatta</button>
             <button class="filter-tab" onclick="filterGallery('regular', this)">Regular</button>
@@ -98,15 +74,7 @@
         <div class="stone-grid" id="grid"></div>
     </main>
 
-    <section id="contacts" class="info-section" style="text-align: center;">
-        <h2>Contacts</h2>
-        <p style="margin: 20px 0;">Warehouse No 16, Dubai Investment Park-2, Dubai, UAE</p>
-        <p><strong>Phone:</strong> <a href="tel:+971585865577" style="color: #fff;">+971 58 586 5577</a></p>
-        <a href="Catalog.pdf" target="_blank" class="cta-btn" style="margin-top:20px; display:inline-block;">Download Full Catalog (PDF)</a>
-    </section>
-
-    <a href="#top" class="top-float">▲</a>
-    <a href="https://wa.me/971585865577" target="_blank" class="whatsapp-float">💬 Chat with us</a>
+    <a href="https://wa.me/971585865577" target="_blank" class="whatsapp-float">Chat with us</a>
 
     <script>
         const grid = document.getElementById('grid');
@@ -114,10 +82,9 @@
             { cat: 'calacatta', file: '2.png' }, { cat: 'calacatta', file: '3.png' }, { cat: 'calacatta', file: '4.png' },
             { cat: 'regular', file: '22.png' }, { cat: 'regular', file: '23.png' }, { cat: 'dark', file: '28.png' }
         ];
-
         function filterGallery(cat, btn) {
             document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
-            if (btn) btn.classList.add('active');
+            btn.classList.add('active');
             grid.innerHTML = '';
             const filtered = cat === 'all' ? allItems : allItems.filter(item => item.cat === cat);
             filtered.forEach(item => {
